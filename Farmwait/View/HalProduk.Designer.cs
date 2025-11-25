@@ -1,6 +1,6 @@
 ﻿namespace Farmwait.View
 {
-    partial class HalHewan
+    partial class HalProduk
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -10,14 +10,12 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
             lblJudul = new Label();
             btnTambah = new Button();
-            dgvHewan = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgvHewan).BeginInit();
+            dgvProduk = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvProduk).BeginInit();
             SuspendLayout();
             // 
             // lblJudul
@@ -26,9 +24,9 @@
             lblJudul.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblJudul.Location = new Point(20, 20);
             lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(264, 37);
+            lblJudul.Size = new Size(265, 37);
             lblJudul.TabIndex = 0;
-            lblJudul.Text = "Manajemen Hewan";
+            lblJudul.Text = "Manajemen Produk";
             // 
             // btnTambah
             // 
@@ -43,39 +41,36 @@
             btnTambah.Text = "+ Tambah";
             btnTambah.UseVisualStyleBackColor = false;
             // 
-            // dgvHewan
+            // dgvProduk
             // 
-            dgvHewan.AllowUserToAddRows = false;
-            dgvHewan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHewan.BackgroundColor = Color.White;
-            dgvHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHewan.Location = new Point(20, 80);
-            dgvHewan.Name = "dgvHewan";
-            dgvHewan.ReadOnly = true;
-            dgvHewan.RowTemplate.Height = 35;
-            dgvHewan.Size = new Size(750, 350);
-            dgvHewan.TabIndex = 2;
-            dgvHewan.CellContentClick += dgvHewan_CellContentClick_1;
+            dgvProduk.AllowUserToAddRows = false;
+            dgvProduk.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProduk.BackgroundColor = Color.White;
+            dgvProduk.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProduk.Location = new Point(20, 80);
+            dgvProduk.Name = "dgvProduk";
+            dgvProduk.ReadOnly = true;
+            dgvProduk.RowTemplate.Height = 35;
+            dgvProduk.Size = new Size(750, 350);
+            dgvProduk.TabIndex = 2;
             // 
-            // HalHewan
+            // HalProduk
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dgvHewan);
+            Controls.Add(dgvProduk);
             Controls.Add(btnTambah);
             Controls.Add(lblJudul);
-            Name = "HalHewan";
-            Text = "Halaman Hewan";
-            ((System.ComponentModel.ISupportInitialize)dgvHewan).EndInit();
+            Name = "HalProduk";
+            Text = "Halaman Produk";
+            ((System.ComponentModel.ISupportInitialize)dgvProduk).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
-
         private Label lblJudul;
         private Button btnTambah;
-        private DataGridView dgvHewan;
+        private DataGridView dgvProduk;
     }
 }

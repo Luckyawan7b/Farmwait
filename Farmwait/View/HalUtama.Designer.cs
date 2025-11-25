@@ -31,7 +31,9 @@
             lblJudul = new Label();
             lblSelamatDatang = new Label();
             btnLogout = new Button();
-            btnKelolaPakan = new Button(); // 1. Deklarasi tombol baru
+            btnKelolaPakan = new Button();
+            btnKelolaHewan = new Button();
+            btnKelolaProduk = new Button();
             SuspendLayout();
             // 
             // lblJudul
@@ -74,15 +76,41 @@
             btnKelolaPakan.FlatStyle = FlatStyle.Flat;
             btnKelolaPakan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnKelolaPakan.ForeColor = Color.White;
-            btnKelolaPakan.Location = new Point(38, 150); // Posisi di bawah label selamat datang
+            btnKelolaPakan.Location = new Point(38, 150);
             btnKelolaPakan.Name = "btnKelolaPakan";
             btnKelolaPakan.Size = new Size(200, 50);
             btnKelolaPakan.TabIndex = 3;
             btnKelolaPakan.Text = "KELOLA PAKAN";
             btnKelolaPakan.UseVisualStyleBackColor = false;
             btnKelolaPakan.Click += btnKelolaPakan_Click; // Event click
-
-
+            //
+            //btnKelolaHewan
+            //
+            btnKelolaHewan.BackColor = Color.Teal; 
+            btnKelolaHewan.FlatStyle = FlatStyle.Flat;
+            btnKelolaHewan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnKelolaHewan.ForeColor = Color.White; 
+            btnKelolaHewan.Location = new Point(38, 220);
+            btnKelolaHewan.Name = "btnKelolaHewan";
+            btnKelolaHewan.Size = new Size(200, 50);
+            btnKelolaHewan.TabIndex = 4;
+            btnKelolaHewan.Text = "KELOLA HEWAN";
+            btnKelolaHewan.UseVisualStyleBackColor = false;
+            btnKelolaHewan.Click += btnKelolaHewan_Click; // Event Click
+            //
+            //btnKelolaProduk
+            //
+            btnKelolaProduk.BackColor = Color.DarkGoldenrod; // Warna beda
+            btnKelolaProduk.FlatStyle = FlatStyle.Flat;
+            btnKelolaProduk.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnKelolaProduk.ForeColor = Color.White;
+            btnKelolaProduk.Location = new Point(38, 290); // Jarak 70px kebawah
+            btnKelolaProduk.Name = "btnKelolaProduk";
+            btnKelolaProduk.Size = new Size(200, 50);
+            btnKelolaProduk.TabIndex = 5;
+            btnKelolaProduk.Text = "KELOLA PRODUK";
+            btnKelolaProduk.UseVisualStyleBackColor = false;
+            btnKelolaProduk.Click += btnKelolaProduk_Click;
             // 
             // HalUtama
             // 
@@ -90,6 +118,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1103, 726);
+            Controls.Add(btnKelolaProduk);
+            Controls.Add(btnKelolaHewan);
             Controls.Add(btnKelolaPakan); 
             Controls.Add(btnLogout);
             Controls.Add(lblSelamatDatang);
@@ -107,5 +137,7 @@
         public Label lblSelamatDatang;
         private Button btnLogout;
         private Button btnKelolaPakan;
+        private Button btnKelolaHewan;
+        private Button btnKelolaProduk;
     }
 }

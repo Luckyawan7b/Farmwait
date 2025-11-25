@@ -6,20 +6,18 @@ namespace Farmwait.View
     public partial class HalUtama : Form
     {
         private string userRole;
-
-        // Constructor menerima parameter role
         public HalUtama(string role)
         {
             InitializeComponent();
             this.userRole = role;
 
-            // 1. UBAH LABEL SESUAI ROLE
             lblSelamatDatang.Text = $"Selamat Datang, {role}!";
 
-            // 2. Logika Hak Akses (Hanya Peternak yang bisa lihat tombol Kelola Pakan)
             if (userRole != "Peternak")
             {
                 btnKelolaPakan.Visible = false;
+                btnKelolaHewan.Visible = false;
+                btnKelolaProduk.Visible = false;
             }
         }
 
@@ -28,6 +26,13 @@ namespace Farmwait.View
             this.Hide();
             HalPakan formPakan = new HalPakan();
             formPakan.ShowDialog();
+            this.Show();
+        }
+        private void btnKelolaHewan_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HalHewan formHewan = new HalHewan(); 
+            formHewan.ShowDialog();
             this.Show();
         }
 
@@ -41,6 +46,14 @@ namespace Farmwait.View
                 // Karena Program.cs menggunakan Loop, ini akan memicu Login muncul lagi.
                 this.Close();
             }
+        }
+
+        private void btnKelolaProduk_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HalProduk formProduk = new HalProduk();
+            formProduk.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -77,7 +77,7 @@ namespace Farmwait.Models
             DataTable dt = new DataTable();
             using (var conn = Koneksi.GetConnection())
             {
-                conn.Open();
+                conn.Open();    
                 using (var cmd = new NpgsqlCommand("SELECT * FROM public.pakan ORDER BY idpakan ASC", conn))
                 {
                     using (var reader = cmd.ExecuteReader()) dt.Load(reader);
