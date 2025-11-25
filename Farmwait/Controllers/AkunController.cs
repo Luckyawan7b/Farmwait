@@ -54,13 +54,13 @@ namespace Farmwait.Controllers
 
             return success;
         }
-        public bool Login(string username, string password)
+        public string Login(string username, string password)
         {
             // 1. Validasi Input Kosong
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Username dan Password harus diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                return null; // Gagal
             }
 
             // 2. Panggil Model
@@ -68,14 +68,13 @@ namespace Farmwait.Controllers
 
             if (role != null)
             {
-                MessageBox.Show($"Selamat datang, anda login sebagai {role}!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Disini anda bisa simpan session role jika perlu
-                return true;
+                //MessageBox.Show($"Selamat datang, anda login sebagai {role}!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return role; 
             }
             else
             {
                 MessageBox.Show("Username atau Password salah!", "Gagal Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return null; 
             }
         }
     }

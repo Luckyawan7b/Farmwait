@@ -31,6 +31,7 @@
             lblJudul = new Label();
             lblSelamatDatang = new Label();
             btnLogout = new Button();
+            btnKelolaPakan = new Button(); // 1. Deklarasi tombol baru
             SuspendLayout();
             // 
             // lblJudul
@@ -66,6 +67,22 @@
             btnLogout.Text = "LOGOUT";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
+            //
+            //btnKelolaPakan
+            //
+            btnKelolaPakan.BackColor = Color.ForestGreen;
+            btnKelolaPakan.FlatStyle = FlatStyle.Flat;
+            btnKelolaPakan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnKelolaPakan.ForeColor = Color.White;
+            btnKelolaPakan.Location = new Point(38, 150); // Posisi di bawah label selamat datang
+            btnKelolaPakan.Name = "btnKelolaPakan";
+            btnKelolaPakan.Size = new Size(200, 50);
+            btnKelolaPakan.TabIndex = 3;
+            btnKelolaPakan.Text = "KELOLA PAKAN";
+            btnKelolaPakan.UseVisualStyleBackColor = false;
+            btnKelolaPakan.Click += btnKelolaPakan_Click; // Event click
+
+
             // 
             // HalUtama
             // 
@@ -73,6 +90,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1103, 726);
+            Controls.Add(btnKelolaPakan); 
             Controls.Add(btnLogout);
             Controls.Add(lblSelamatDatang);
             Controls.Add(lblJudul);
@@ -86,7 +104,8 @@
         #endregion
 
         private Label lblJudul;
-        public Label lblSelamatDatang; // Public agar bisa diakses dari Login
+        public Label lblSelamatDatang;
         private Button btnLogout;
+        private Button btnKelolaPakan;
     }
 }

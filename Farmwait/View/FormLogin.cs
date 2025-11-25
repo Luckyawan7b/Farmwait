@@ -10,6 +10,8 @@ namespace Farmwait
     {
         private AkunController controller;
 
+        public string RolePengguna { get; private set; }
+
         public FormLogin()
         {
             InitializeComponent();
@@ -77,19 +79,16 @@ namespace Farmwait
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Bersihkan input dari teks placeholder sebelum dikirim ke Controller
             string user = tbUsernameLogin.Text == "Username" ? "" : tbUsernameLogin.Text;
             string pass = tbPasswordLogin.Text == "Password" ? "" : tbPasswordLogin.Text;
 
-            // Panggil Controller
-            bool isSuccess = controller.Login(user, pass);
+            string role = controller.Login(user, pass);
 
-            if (isSuccess)
+            if (role != null)
             {
-                // PENTING: Baris ini memberitahu Program.cs bahwa login BERHASIL
+                this.RolePengguna = role;
                 this.DialogResult = DialogResult.OK;
-
-                this.Close(); // Menutup form login agar lanjut ke HalUtama
+                this.Close();
             }
         }
 
