@@ -34,6 +34,7 @@
             btnKelolaPakan = new Button();
             btnKelolaHewan = new Button();
             btnKelolaProduk = new Button();
+            btnProfil = new Button();
             SuspendLayout();
             // 
             // lblJudul
@@ -111,6 +112,51 @@
             btnKelolaProduk.Text = "KELOLA PRODUK";
             btnKelolaProduk.UseVisualStyleBackColor = false;
             btnKelolaProduk.Click += btnKelolaProduk_Click;
+            //
+            //btnProfil
+            //
+            btnProfil.Location = new Point(880, 30);
+            btnProfil.Name = "btnProfil";
+            btnProfil.Size = new Size(50, 45); 
+            btnProfil.TabIndex = 6;
+            btnProfil.UseVisualStyleBackColor = true;
+            btnProfil.BackColor = Color.Transparent;
+            btnProfil.FlatStyle = FlatStyle.Flat;
+            btnProfil.FlatAppearance.BorderSize = 0;
+            btnProfil.Cursor = Cursors.Hand;
+            btnProfil.Click += btnProfil_Click;
+
+
+            //
+            // Gambar
+            //
+            btnProfil.BackgroundImage = Properties.Resources.profil;
+            btnProfil.ImageAlign = ContentAlignment.MiddleCenter;
+            btnProfil.BackgroundImageLayout = ImageLayout.Zoom;
+
+            //try
+            //{
+            //    //string path = Path.Combine(Application.StartupPath, "View", "profil.png");
+            //    //string path = "../../View/profil.png";
+            //    //string path = Path.Combine(Directory.GetCurrentDirectory(), "View", "profil.png");
+
+            //    if (File.Exists(path))
+            //    {
+            //        btnProfil.BackgroundImage = Image.FromFile(path);
+            //        btnProfil.ImageAlign = ContentAlignment.MiddleCenter;
+            //        btnProfil.BackgroundImageLayout = ImageLayout.Zoom;
+            //    }
+            //    else
+            //    {
+            //        btnProfil.Text = "Profil";
+            //        btnProfil.BackColor = Color.Gray;
+            //    }
+            //}
+            //catch
+            //{
+            //    btnProfil.Text = "Profil";
+            //}
+
             // 
             // HalUtama
             // 
@@ -118,6 +164,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1103, 726);
+            Controls.Add(btnProfil);
             Controls.Add(btnKelolaProduk);
             Controls.Add(btnKelolaHewan);
             Controls.Add(btnKelolaPakan); 
@@ -139,5 +186,6 @@
         private Button btnKelolaPakan;
         private Button btnKelolaHewan;
         private Button btnKelolaProduk;
+        private Button btnProfil;
     }
 }

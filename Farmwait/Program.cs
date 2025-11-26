@@ -12,7 +12,6 @@ namespace Farmwait
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // LOOPING APLIKASI
             while (true)
             {
                 FormLogin loginForm = new FormLogin();
@@ -21,12 +20,9 @@ namespace Farmwait
                 if (hasilLogin == DialogResult.OK)
                 {
                     string role = loginForm.RolePengguna;
+                    int idUser = loginForm.IdPengguna;
 
-                    // Jalankan HalUtama
-                    // Application.Run akan menahan kode di sini sampai HalUtama di-close (Logout)
-                    Application.Run(new HalUtama(role));
-
-                    // Setelah HalUtama close, kode lanjut ke atas loop lagi (Buka Login baru)
+                    Application.Run(new HalUtama(role, idUser));
                 }
                 else
                 {

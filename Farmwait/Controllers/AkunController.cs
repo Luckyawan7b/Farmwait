@@ -1,6 +1,7 @@
 ﻿using Farmwait.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Farmwait.Controllers
@@ -54,28 +55,55 @@ namespace Farmwait.Controllers
 
             return success;
         }
-        public string Login(string username, string password)
+        public Akun Login(string username, string password)
         {
-            // 1. Validasi Input Kosong
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Username dan Password harus diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return null; // Gagal
+                return null;
             }
 
-            // 2. Panggil Model
-            string role = Akun.CekLogin(username, password);
+            Akun hasilLogin = Akun.CekLogin(username, password);
 
-            if (role != null)
+            if (hasilLogin != null)
             {
-                //MessageBox.Show($"Selamat datang, anda login sebagai {role}!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return role; 
+                return hasilLogin; 
             }
             else
             {
                 MessageBox.Show("Username atau Password salah!", "Gagal Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null; 
+                return null;
             }
+        
         }
+        public DataTable LoadSemuaAkun()
+        {
+            return Akun.AmbilSemuaAkun();
+        }
+        public Akun LoadDetailAkun(int id)
+        {
+            Akun akun = new Akun();
+            if (akun.AmbilDetailById(id))
+            {
+                return akun; // Mengembalikan Objek Akun yang sudah terisi
+            }
+            return null;
+        }
+        public bool UpdateAkun(int id, string user, string pass, string nama, string email, string alamat, string telp, int idDesa, string role)
+        {
+            Akun akun = new Akun();
+            akun.IdAkun = id;
+            akun.Username = user;
+            akun.Password = pass;
+            akun.Nama = nama;
+            akun.Email = email;
+            akun.Alamat = alamat;
+            akun.Telp = telp;
+            akun.IdDesa = idDesa;
+            akun.Role = role;
+
+            return akun.UpdateData();
+        }
+
     }
 }

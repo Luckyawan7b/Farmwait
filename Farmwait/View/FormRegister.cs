@@ -1,7 +1,7 @@
 ﻿using Farmwait.Controllers;
-using Farmwait.Models; // Pastikan namespace ini ada untuk ComboBoxItem
+using Farmwait.Models; 
 using System;
-using System.Drawing; // Perlu untuk Color
+using System.Drawing; 
 using System.Windows.Forms;
 
 namespace Farmwait.View
