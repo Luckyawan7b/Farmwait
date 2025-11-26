@@ -28,102 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblJudul = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalUtama));
             lblSelamatDatang = new Label();
             btnLogout = new Button();
             btnKelolaPakan = new Button();
             btnKelolaHewan = new Button();
             btnKelolaProduk = new Button();
+            btnProfil = new Button();
             SuspendLayout();
-            // 
-            // lblJudul
-            // 
-            lblJudul.AutoSize = true;
-            lblJudul.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.Location = new Point(30, 30);
-            lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(394, 45);
-            lblJudul.TabIndex = 0;
-            lblJudul.Text = "FARMWAIT DASHBOARD";
             // 
             // lblSelamatDatang
             // 
             lblSelamatDatang.AutoSize = true;
+            lblSelamatDatang.BackColor = Color.Transparent;
             lblSelamatDatang.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSelamatDatang.Location = new Point(38, 90);
+            lblSelamatDatang.Location = new Point(65, 292);
             lblSelamatDatang.Name = "lblSelamatDatang";
-            lblSelamatDatang.Size = new Size(200, 25);
+            lblSelamatDatang.Size = new Size(197, 25);
             lblSelamatDatang.TabIndex = 1;
             lblSelamatDatang.Text = "Selamat Datang, User!";
             // 
             // btnLogout
             // 
-            btnLogout.BackColor = Color.Firebrick;
+            btnLogout.BackColor = Color.Transparent;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnLogout.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnLogout.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Font = new Font("Nirmala UI", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(950, 30);
+            btnLogout.Location = new Point(915, 57);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(120, 45);
+            btnLogout.Size = new Size(178, 68);
             btnLogout.TabIndex = 2;
             btnLogout.Text = "LOGOUT";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
-            //
-            //btnKelolaPakan
-            //
-            btnKelolaPakan.BackColor = Color.ForestGreen;
+            // 
+            // btnKelolaPakan
+            // 
+            btnKelolaPakan.BackColor = Color.FromArgb(255, 192, 128);
+            btnKelolaPakan.FlatAppearance.BorderSize = 0;
+            btnKelolaPakan.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnKelolaPakan.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnKelolaPakan.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnKelolaPakan.FlatStyle = FlatStyle.Flat;
-            btnKelolaPakan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnKelolaPakan.ForeColor = Color.White;
-            btnKelolaPakan.Location = new Point(38, 150);
+            btnKelolaPakan.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
+            btnKelolaPakan.ForeColor = Color.Black;
+            btnKelolaPakan.Location = new Point(130, 365);
             btnKelolaPakan.Name = "btnKelolaPakan";
-            btnKelolaPakan.Size = new Size(200, 50);
+            btnKelolaPakan.Size = new Size(409, 139);
             btnKelolaPakan.TabIndex = 3;
             btnKelolaPakan.Text = "KELOLA PAKAN";
             btnKelolaPakan.UseVisualStyleBackColor = false;
-            btnKelolaPakan.Click += btnKelolaPakan_Click; // Event click
-            //
-            //btnKelolaHewan
-            //
-            btnKelolaHewan.BackColor = Color.Teal; 
+            btnKelolaPakan.Click += btnKelolaPakan_Click;
+            // 
+            // btnKelolaHewan
+            // 
+            btnKelolaHewan.BackColor = Color.FromArgb(255, 192, 128);
+            btnKelolaHewan.FlatAppearance.BorderSize = 0;
+            btnKelolaHewan.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnKelolaHewan.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnKelolaHewan.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnKelolaHewan.FlatStyle = FlatStyle.Flat;
-            btnKelolaHewan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnKelolaHewan.ForeColor = Color.White; 
-            btnKelolaHewan.Location = new Point(38, 220);
+            btnKelolaHewan.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
+            btnKelolaHewan.ForeColor = Color.Black;
+            btnKelolaHewan.Location = new Point(678, 363);
             btnKelolaHewan.Name = "btnKelolaHewan";
-            btnKelolaHewan.Size = new Size(200, 50);
+            btnKelolaHewan.Size = new Size(364, 141);
             btnKelolaHewan.TabIndex = 4;
             btnKelolaHewan.Text = "KELOLA HEWAN";
             btnKelolaHewan.UseVisualStyleBackColor = false;
-            btnKelolaHewan.Click += btnKelolaHewan_Click; // Event Click
-            //
-            //btnKelolaProduk
-            //
-            btnKelolaProduk.BackColor = Color.DarkGoldenrod; // Warna beda
+            btnKelolaHewan.Click += btnKelolaHewan_Click;
+            // 
+            // btnKelolaProduk
+            // 
+            btnKelolaProduk.BackColor = Color.FromArgb(255, 192, 128);
+            btnKelolaProduk.FlatAppearance.BorderSize = 0;
+            btnKelolaProduk.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnKelolaProduk.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnKelolaProduk.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnKelolaProduk.FlatStyle = FlatStyle.Flat;
-            btnKelolaProduk.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnKelolaProduk.ForeColor = Color.White;
-            btnKelolaProduk.Location = new Point(38, 290); // Jarak 70px kebawah
+            btnKelolaProduk.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
+            btnKelolaProduk.ForeColor = Color.Black;
+            btnKelolaProduk.Location = new Point(130, 574);
             btnKelolaProduk.Name = "btnKelolaProduk";
-            btnKelolaProduk.Size = new Size(200, 50);
+            btnKelolaProduk.Size = new Size(409, 146);
             btnKelolaProduk.TabIndex = 5;
             btnKelolaProduk.Text = "KELOLA PRODUK";
             btnKelolaProduk.UseVisualStyleBackColor = false;
             btnKelolaProduk.Click += btnKelolaProduk_Click;
+            // 
+            // btnProfil
+            // 
+            btnProfil.BackColor = Color.Transparent;
+            btnProfil.FlatAppearance.BorderSize = 0;
+            btnProfil.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnProfil.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnProfil.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnProfil.FlatStyle = FlatStyle.Flat;
+            btnProfil.Font = new Font("Nirmala UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProfil.ForeColor = Color.Black;
+            btnProfil.Location = new Point(618, 63);
+            btnProfil.Name = "btnProfil";
+            btnProfil.Size = new Size(177, 56);
+            btnProfil.TabIndex = 6;
+            btnProfil.Text = "Profil";
+            btnProfil.UseVisualStyleBackColor = false;
             // 
             // HalUtama
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1103, 726);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1136, 825);
+            Controls.Add(btnProfil);
             Controls.Add(btnKelolaProduk);
             Controls.Add(btnKelolaHewan);
-            Controls.Add(btnKelolaPakan); 
+            Controls.Add(btnKelolaPakan);
             Controls.Add(btnLogout);
             Controls.Add(lblSelamatDatang);
-            Controls.Add(lblJudul);
             Name = "HalUtama";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Farmwait - Halaman Utama";
@@ -132,12 +158,11 @@
         }
 
         #endregion
-
-        private Label lblJudul;
         public Label lblSelamatDatang;
         private Button btnLogout;
         private Button btnKelolaPakan;
         private Button btnKelolaHewan;
         private Button btnKelolaProduk;
+        private Button btnProfil;
     }
 }

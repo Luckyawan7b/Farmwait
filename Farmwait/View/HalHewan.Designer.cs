@@ -14,31 +14,21 @@
 
         private void InitializeComponent()
         {
-            lblJudul = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalHewan));
             btnTambah = new Button();
             dgvHewan = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvHewan).BeginInit();
             SuspendLayout();
             // 
-            // lblJudul
-            // 
-            lblJudul.AutoSize = true;
-            lblJudul.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblJudul.Location = new Point(20, 20);
-            lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(264, 37);
-            lblJudul.TabIndex = 0;
-            lblJudul.Text = "Manajemen Hewan";
-            // 
             // btnTambah
             // 
-            btnTambah.BackColor = Color.ForestGreen;
+            btnTambah.BackColor = Color.FromArgb(192, 0, 0);
             btnTambah.FlatStyle = FlatStyle.Flat;
-            btnTambah.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnTambah.Font = new Font("Nirmala UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnTambah.ForeColor = Color.White;
-            btnTambah.Location = new Point(650, 25);
+            btnTambah.Location = new Point(1007, 65);
             btnTambah.Name = "btnTambah";
-            btnTambah.Size = new Size(120, 40);
+            btnTambah.Size = new Size(100, 43);
             btnTambah.TabIndex = 1;
             btnTambah.Text = "+ Tambah";
             btnTambah.UseVisualStyleBackColor = false;
@@ -47,13 +37,13 @@
             // 
             dgvHewan.AllowUserToAddRows = false;
             dgvHewan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHewan.BackgroundColor = Color.White;
+            dgvHewan.BackgroundColor = Color.WhiteSmoke;
             dgvHewan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHewan.Location = new Point(20, 80);
+            dgvHewan.Location = new Point(30, 180);
             dgvHewan.Name = "dgvHewan";
             dgvHewan.ReadOnly = true;
             dgvHewan.RowTemplate.Height = 35;
-            dgvHewan.Size = new Size(750, 350);
+            dgvHewan.Size = new Size(1077, 579);
             dgvHewan.TabIndex = 2;
             dgvHewan.CellContentClick += dgvHewan_CellContentClick_1;
             // 
@@ -61,20 +51,17 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1136, 825);
             Controls.Add(dgvHewan);
             Controls.Add(btnTambah);
-            Controls.Add(lblJudul);
             Name = "HalHewan";
             Text = "Halaman Hewan";
             ((System.ComponentModel.ISupportInitialize)dgvHewan).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label lblJudul;
         private Button btnTambah;
         private DataGridView dgvHewan;
     }

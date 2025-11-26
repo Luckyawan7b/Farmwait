@@ -62,12 +62,12 @@
             btnSimpan.Text = "SIMPAN";
             btnSimpan.Click += btnSimpan_Click;
 
-            btnBatal.BackColor = Color.Firebrick;
-            btnBatal.ForeColor = Color.White;
-            btnBatal.Location = new Point(30, 280);
-            btnBatal.Size = new Size(170, 45);
-            btnBatal.Text = "BATAL";
-            btnBatal.Click += (s, e) => this.Close();
+            //btnBatal.BackColor = Color.Firebrick;
+            //btnBatal.ForeColor = Color.White;
+            //btnBatal.Location = new Point(30, 280);
+            //btnBatal.Size = new Size(170, 45);
+            //btnBatal.Text = "BATAL";
+            //btnBatal.
 
             // Form
             ClientSize = new Size(500, 360);

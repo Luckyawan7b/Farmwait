@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblJudul = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPakan));
             lblNama = new Label();
             tbNamaPakan = new TextBox();
             lblStok = new Label();
@@ -37,38 +37,16 @@
             tbHargaPakan = new TextBox();
             btnSimpan = new Button();
             btnBatal = new Button();
-            panelHeader = new Panel();
-            panelHeader.SuspendLayout();
             SuspendLayout();
-            // 
-            // panelHeader
-            // 
-            panelHeader.BackColor = Color.FromArgb(64, 64, 64);
-            panelHeader.Controls.Add(lblJudul);
-            panelHeader.Dock = DockStyle.Top;
-            panelHeader.Location = new Point(0, 0);
-            panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(500, 60);
-            panelHeader.TabIndex = 8;
-            // 
-            // lblJudul
-            // 
-            lblJudul.AutoSize = true;
-            lblJudul.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.ForeColor = Color.White;
-            lblJudul.Location = new Point(12, 13);
-            lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(232, 32);
-            lblJudul.TabIndex = 0;
-            lblJudul.Text = "Kelola Data Pakan";
             // 
             // lblNama
             // 
             lblNama.AutoSize = true;
-            lblNama.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lblNama.BackColor = Color.Transparent;
+            lblNama.Font = new Font("Calibri", 14.25F, FontStyle.Bold);
             lblNama.Location = new Point(40, 90);
             lblNama.Name = "lblNama";
-            lblNama.Size = new Size(102, 21);
+            lblNama.Size = new Size(107, 23);
             lblNama.TabIndex = 1;
             lblNama.Text = "Nama Pakan";
             // 
@@ -83,10 +61,11 @@
             // lblStok
             // 
             lblStok.AutoSize = true;
-            lblStok.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lblStok.BackColor = Color.Transparent;
+            lblStok.Font = new Font("Calibri", 14.25F, FontStyle.Bold);
             lblStok.Location = new Point(40, 160);
             lblStok.Name = "lblStok";
-            lblStok.Size = new Size(91, 21);
+            lblStok.Size = new Size(96, 23);
             lblStok.TabIndex = 3;
             lblStok.Text = "Stok Pakan";
             // 
@@ -101,10 +80,11 @@
             // lblHarga
             // 
             lblHarga.AutoSize = true;
-            lblHarga.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            lblHarga.BackColor = Color.Transparent;
+            lblHarga.Font = new Font("Calibri", 14.25F, FontStyle.Bold);
             lblHarga.Location = new Point(40, 230);
             lblHarga.Name = "lblHarga";
-            lblHarga.Size = new Size(137, 21);
+            lblHarga.Size = new Size(144, 23);
             lblHarga.TabIndex = 5;
             lblHarga.Text = "Harga Pakan (Rp)";
             // 
@@ -120,7 +100,7 @@
             // 
             btnSimpan.BackColor = Color.ForestGreen;
             btnSimpan.FlatStyle = FlatStyle.Flat;
-            btnSimpan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSimpan.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold | FontStyle.Italic);
             btnSimpan.ForeColor = Color.White;
             btnSimpan.Location = new Point(280, 320);
             btnSimpan.Name = "btnSimpan";
@@ -133,7 +113,7 @@
             // 
             btnBatal.BackColor = Color.Firebrick;
             btnBatal.FlatStyle = FlatStyle.Flat;
-            btnBatal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBatal.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold | FontStyle.Italic);
             btnBatal.ForeColor = Color.White;
             btnBatal.Location = new Point(40, 320);
             btnBatal.Name = "btnBatal";
@@ -147,6 +127,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(500, 400);
             Controls.Add(btnBatal);
             Controls.Add(btnSimpan);
@@ -156,22 +137,17 @@
             Controls.Add(lblStok);
             Controls.Add(tbNamaPakan);
             Controls.Add(lblNama);
-            Controls.Add(panelHeader);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormPakan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Input Data Pakan";
-            panelHeader.ResumeLayout(false);
-            panelHeader.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblJudul;
         private System.Windows.Forms.Label lblNama;
         public System.Windows.Forms.TextBox tbNamaPakan; // Public agar bisa diakses Controller nanti
         private System.Windows.Forms.Label lblStok;
@@ -180,6 +156,5 @@
         public System.Windows.Forms.TextBox tbHargaPakan;
         public System.Windows.Forms.Button btnSimpan;
         public System.Windows.Forms.Button btnBatal;
-        private System.Windows.Forms.Panel panelHeader;
     }
 }
