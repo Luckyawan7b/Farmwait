@@ -11,13 +11,12 @@ namespace Farmwait
         private AkunController controller;
 
         public string RolePengguna { get; private set; }
+        public int IdPengguna { get; private set; }
 
         public FormLogin()
         {
             InitializeComponent();
             controller = new AkunController();
-
-            // Pasang event Load
             this.Load += FormLogin_Load;
         }
 
@@ -82,11 +81,15 @@ namespace Farmwait
             string user = tbUsernameLogin.Text == "Username" ? "" : tbUsernameLogin.Text;
             string pass = tbPasswordLogin.Text == "Password" ? "" : tbPasswordLogin.Text;
 
-            string role = controller.Login(user, pass);
+            // [TERIMA OBJEK AKUN]
+            Farmwait.Models.Akun hasil = controller.Login(user, pass);
 
-            if (role != null)
+            if (hasil != null)
             {
-                this.RolePengguna = role;
+                // SIMPAN ID DAN ROLE
+                this.IdPengguna = hasil.IdAkun;
+                this.RolePengguna = hasil.Role;
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -6,10 +6,12 @@ namespace Farmwait.View
     public partial class HalUtama : Form
     {
         private string userRole;
-        public HalUtama(string role)
+        private int idUser;
+        public HalUtama(string role, int idUser)
         {
             InitializeComponent();
             this.userRole = role;
+            this.idUser = idUser;
 
             lblSelamatDatang.Text = $"Selamat Datang, {role}!";
 
@@ -35,7 +37,6 @@ namespace Farmwait.View
             formHewan.ShowDialog();
             this.Show();
         }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult tanya = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -47,12 +48,18 @@ namespace Farmwait.View
                 this.Close();
             }
         }
-
         private void btnKelolaProduk_Click(object sender, EventArgs e)
         {
             this.Hide();
             HalProduk formProduk = new HalProduk();
             formProduk.ShowDialog();
+            this.Show();
+        }
+        private void btnProfil_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HalAkun formAkun = new HalAkun(this.userRole, this.idUser);
+            formAkun.ShowDialog();
             this.Show();
         }
     }
