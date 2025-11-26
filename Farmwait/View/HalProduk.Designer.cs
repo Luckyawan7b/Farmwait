@@ -15,6 +15,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalProduk));
             btnTambah = new Button();
             dgvProduk = new DataGridView();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProduk).BeginInit();
             SuspendLayout();
             // 
@@ -44,20 +45,32 @@
             dgvProduk.Size = new Size(1075, 586);
             dgvProduk.TabIndex = 2;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(916, 153);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Test commit";
+            // 
             // HalProduk
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1136, 825);
+            Controls.Add(label1);
             Controls.Add(dgvProduk);
             Controls.Add(btnTambah);
             Name = "HalProduk";
             Text = "Halaman Produk";
             ((System.ComponentModel.ISupportInitialize)dgvProduk).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
         private Button btnTambah;
         private DataGridView dgvProduk;
+        private Label label1;
     }
 }
