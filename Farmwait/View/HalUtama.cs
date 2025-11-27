@@ -20,7 +20,18 @@ namespace Farmwait.View
                 btnKelolaPakan.Visible = false;
                 btnKelolaHewan.Visible = false;
                 btnKelolaProduk.Visible = false;
+                btnKelolaTransaksi.Visible = false;
+                btnTransaksi.Visible = true;
             }
+            else
+            {
+                btnKelolaPakan.Visible = true;
+                btnKelolaHewan.Visible = true;
+                btnKelolaProduk.Visible = true;
+                btnKelolaTransaksi.Visible = true;
+                btnTransaksi.Visible = false;
+            }
+
         }
 
         private void btnKelolaPakan_Click(object sender, EventArgs e)
@@ -33,7 +44,7 @@ namespace Farmwait.View
         private void btnKelolaHewan_Click(object sender, EventArgs e)
         {
             this.Hide();
-            HalHewan formHewan = new HalHewan(); 
+            HalHewan formHewan = new HalHewan();
             formHewan.ShowDialog();
             this.Show();
         }
@@ -60,6 +71,14 @@ namespace Farmwait.View
             this.Hide();
             HalAkun formAkun = new HalAkun(this.userRole, this.idUser);
             formAkun.ShowDialog();
+            this.Show();
+        }
+
+        private void btnKelolaTransaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HalTransaksiPeternak transaksiPeternak = new HalTransaksiPeternak();
+            transaksiPeternak.ShowDialog();
             this.Show();
         }
     }

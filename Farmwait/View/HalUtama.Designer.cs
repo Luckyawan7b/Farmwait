@@ -35,6 +35,8 @@
             btnKelolaHewan = new Button();
             btnKelolaProduk = new Button();
             btnProfil = new Button();
+            btnKelolaTransaksi = new Button();
+            btnTransaksi = new Button();
             SuspendLayout();
             // 
             // lblSelamatDatang
@@ -76,9 +78,9 @@
             btnKelolaPakan.FlatStyle = FlatStyle.Flat;
             btnKelolaPakan.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
             btnKelolaPakan.ForeColor = Color.Black;
-            btnKelolaPakan.Location = new Point(130, 365);
+            btnKelolaPakan.Location = new Point(175, 524);
             btnKelolaPakan.Name = "btnKelolaPakan";
-            btnKelolaPakan.Size = new Size(409, 139);
+            btnKelolaPakan.Size = new Size(342, 102);
             btnKelolaPakan.TabIndex = 3;
             btnKelolaPakan.Text = "KELOLA PAKAN";
             btnKelolaPakan.UseVisualStyleBackColor = false;
@@ -94,9 +96,9 @@
             btnKelolaHewan.FlatStyle = FlatStyle.Flat;
             btnKelolaHewan.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
             btnKelolaHewan.ForeColor = Color.Black;
-            btnKelolaHewan.Location = new Point(678, 363);
+            btnKelolaHewan.Location = new Point(634, 522);
             btnKelolaHewan.Name = "btnKelolaHewan";
-            btnKelolaHewan.Size = new Size(364, 141);
+            btnKelolaHewan.Size = new Size(297, 104);
             btnKelolaHewan.TabIndex = 4;
             btnKelolaHewan.Text = "KELOLA HEWAN";
             btnKelolaHewan.UseVisualStyleBackColor = false;
@@ -112,9 +114,9 @@
             btnKelolaProduk.FlatStyle = FlatStyle.Flat;
             btnKelolaProduk.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
             btnKelolaProduk.ForeColor = Color.Black;
-            btnKelolaProduk.Location = new Point(130, 574);
+            btnKelolaProduk.Location = new Point(175, 654);
             btnKelolaProduk.Name = "btnKelolaProduk";
-            btnKelolaProduk.Size = new Size(409, 146);
+            btnKelolaProduk.Size = new Size(342, 109);
             btnKelolaProduk.TabIndex = 5;
             btnKelolaProduk.Text = "KELOLA PRODUK";
             btnKelolaProduk.UseVisualStyleBackColor = false;
@@ -135,6 +137,41 @@
             btnProfil.UseVisualStyleBackColor = false;
             btnProfil.Click += btnProfil_Click;
             // 
+            // btnKelolaTransaksi
+            // 
+            btnKelolaTransaksi.BackColor = Color.FromArgb(255, 192, 128);
+            btnKelolaTransaksi.FlatAppearance.BorderSize = 0;
+            btnKelolaTransaksi.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnKelolaTransaksi.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnKelolaTransaksi.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnKelolaTransaksi.FlatStyle = FlatStyle.Flat;
+            btnKelolaTransaksi.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
+            btnKelolaTransaksi.ForeColor = Color.Black;
+            btnKelolaTransaksi.Location = new Point(634, 656);
+            btnKelolaTransaksi.Name = "btnKelolaTransaksi";
+            btnKelolaTransaksi.Size = new Size(297, 104);
+            btnKelolaTransaksi.TabIndex = 7;
+            btnKelolaTransaksi.Text = "KELOLA TRANSAKSI";
+            btnKelolaTransaksi.UseVisualStyleBackColor = false;
+            btnKelolaTransaksi.Click += btnKelolaTransaksi_Click;
+            // 
+            // btnTransaksi
+            // 
+            btnTransaksi.BackColor = Color.FromArgb(255, 192, 128);
+            btnTransaksi.FlatAppearance.BorderSize = 0;
+            btnTransaksi.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnTransaksi.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnTransaksi.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnTransaksi.FlatStyle = FlatStyle.Flat;
+            btnTransaksi.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
+            btnTransaksi.ForeColor = Color.Black;
+            btnTransaksi.Location = new Point(411, 347);
+            btnTransaksi.Name = "btnTransaksi";
+            btnTransaksi.Size = new Size(297, 104);
+            btnTransaksi.TabIndex = 8;
+            btnTransaksi.Text = "TRANSAKSI";
+            btnTransaksi.UseVisualStyleBackColor = false;
+            // 
             // HalUtama
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -142,6 +179,8 @@
             BackColor = Color.WhiteSmoke;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1136, 825);
+            Controls.Add(btnTransaksi);
+            Controls.Add(btnKelolaTransaksi);
             Controls.Add(btnProfil);
             Controls.Add(btnKelolaProduk);
             Controls.Add(btnKelolaHewan);
@@ -162,5 +201,7 @@
         private Button btnKelolaHewan;
         private Button btnKelolaProduk;
         private Button btnProfil;
+        private Button btnKelolaTransaksi;
+        private Button btnTransaksi;
     }
 }
