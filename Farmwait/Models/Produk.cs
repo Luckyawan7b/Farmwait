@@ -52,6 +52,32 @@ namespace Farmwait.Models
         }
 
         // [POLIMORFISME] Method Instance Update Data
+        // Method untuk mengurangi stok setelah pembelian sukses
+        public static void KurangiStok(int idProduk, int jumlahDibeli)
+        {
+            try
+            {
+                using (var conn = Koneksi.GetConnection())
+                {
+                    conn.Open();
+                    // Query UPDATE matematika sederhana (Stok Lama - Jumlah Beli)
+                    string sql = "UPDATE public.produk SET jumlahproduk = jumlahproduk - @dibeli WHERE idproduk = @id";
+
+                    using (var cmd = new NpgsqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@dibeli", jumlahDibeli);
+                        cmd.Parameters.AddWithValue("@id", idProduk);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Gagal update stok: " + ex.Message);
+            }
+        }
+
         public bool UpdateData()
         {
             try

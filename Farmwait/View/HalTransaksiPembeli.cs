@@ -61,7 +61,13 @@ namespace Farmwait.View
                 //string hargaProduk = row.Cells["hargaProduk"].Value.ToString();
 
                 // 4. Panggil Form Pop-up (Kirim paket data lengkap)
-                FormPembelian formBeli = new FormPembelian(idProduk, nama, hargaProduk, _idUserLogin);
+                //FormPembelian formBeli = new FormPembelian(idProduk, nama, hargaProduk, _idUserLogin);
+
+
+                int stokAwal = int.Parse(row.Cells["jumlahProduk"].Value.ToString());
+
+                // Kirim Stok ke Form Pembelian (Parameter terakhir)
+                FormPembelian formBeli = new FormPembelian(idProduk, nama, hargaProduk, _idUserLogin, stokAwal);
 
                 // 5. Tampilkan sebagai Dialog (User harus tutup pop-up dulu baru bisa balik)
                 formBeli.ShowDialog();

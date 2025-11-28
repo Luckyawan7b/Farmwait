@@ -52,6 +52,18 @@ namespace Farmwait.View
             this.Load += (s, e) => { cbHewan.SelectedValue = idHewan; };
         }
 
+
+
+        private void btnBatal_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FormProduk_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnSimpan_Click(object sender, EventArgs e)
         {
             bool sukses = controller.SimpanProduk(

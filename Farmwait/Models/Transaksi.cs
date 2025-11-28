@@ -56,6 +56,39 @@ namespace Farmwait.Models
             return dt;
         }
 
+        public static void TambahTransaksi(DateTime tgl, int idAkun, string metode, int idProduk, int jumlah, int total)
+        {
+            try
+            {
+                using (var conn = Koneksi.GetConnection())
+                {
+                    conn.Open();
+
+                    // Perhatikan: Kolom 'status' kita HARDCODE langsung dengan nilai 'Proses'
+                    string sql = @"INSERT INTO public.transaksi 
+                           (tanggaltransaksi, idakun, metodepembayaran, idproduk, status, jumlah, totalharga) 
+                           VALUES 
+                           (@tgl, @idakun, @metode, @idproduk, 'Proses', @jumlah, @total)";
+
+                    using (var cmd = new NpgsqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@tgl", tgl);
+                        cmd.Parameters.AddWithValue("@idakun", idAkun);
+                        cmd.Parameters.AddWithValue("@metode", metode);
+                        cmd.Parameters.AddWithValue("@idproduk", idProduk);
+                        cmd.Parameters.AddWithValue("@jumlah", jumlah);
+                        cmd.Parameters.AddWithValue("@total", total);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Lempar error ke Form biar muncul MessageBox di sana
+                throw new Exception("Gagal simpan ke database: " + ex.Message);
+            }
+        }
         // Opsional: Fitur Filter Berdasarkan ID Akun (Misal untuk melihat riwayat user tertentu)
         public static DataTable AmbilByAkun(int idAkun)
         {
