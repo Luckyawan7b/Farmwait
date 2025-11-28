@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace Farmwait.View
 {
-    public partial class HalTransaksiPembeli : Form
+    public partial class HalPembelian : Form
     {
         private int _idUserLogin;
-        public HalTransaksiPembeli(int idUser)
+        public HalPembelian(int idUser)
         {
             InitializeComponent();
             _idUserLogin = idUser;

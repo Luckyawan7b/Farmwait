@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Farmwait.View
 {
-    public partial class HalTransaksiPeternak : Form
+    public partial class HalTransaksi : Form
     {
-        public HalTransaksiPeternak()
+        public HalTransaksi()
         {
             InitializeComponent();
         }

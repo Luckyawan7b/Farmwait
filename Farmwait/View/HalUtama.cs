@@ -77,7 +77,7 @@ namespace Farmwait.View
         private void btnKelolaTransaksi_Click(object sender, EventArgs e)
         {
             this.Hide();
-            HalTransaksiPeternak transaksiPeternak = new HalTransaksiPeternak();
+            HalTransaksi transaksiPeternak = new HalTransaksi();
             transaksiPeternak.ShowDialog();
             this.Show();
         }
@@ -85,7 +85,7 @@ namespace Farmwait.View
         private void btnTransaksi_Click(object sender, EventArgs e)
         {
             this.Hide();
-            HalTransaksiPembeli halTransaksiPembeli = new HalTransaksiPembeli(this.idUser);
+            HalPembelian halTransaksiPembeli = new HalPembelian(this.idUser);
             halTransaksiPembeli.ShowDialog();
             this.Show();
         }

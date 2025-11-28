@@ -1,6 +1,6 @@
 ﻿namespace Farmwait.View
 {
-    partial class HalTransaksiPeternak
+    partial class HalTransaksi
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalTransaksiPeternak));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalTransaksi));
             dgvTransaksi = new DataGridView();
             idTransaksi = new DataGridViewTextBoxColumn();
             tanggalTransaksi = new DataGridViewTextBoxColumn();
