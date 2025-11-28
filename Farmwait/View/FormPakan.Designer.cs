@@ -138,6 +138,7 @@
             Controls.Add(tbNamaPakan);
             Controls.Add(lblNama);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormPakan";

@@ -52,6 +52,7 @@
             ClientSize = new Size(1136, 825);
             Controls.Add(btnTambah);
             Controls.Add(dgvPakan);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HalPakan";
             Text = "Halaman Pakan";
             ((System.ComponentModel.ISupportInitialize)dgvPakan).EndInit();

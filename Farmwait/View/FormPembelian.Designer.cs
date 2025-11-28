@@ -232,6 +232,7 @@
             Controls.Add(tbTanggalTransaksi);
             Controls.Add(lblIDTransaksi);
             Controls.Add(tbIDTransaksi);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormPembelian";
             Text = "Form Pembelian";
             Load += FormPembelian_Load;

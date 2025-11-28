@@ -12,6 +12,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAkun));
             tbUsername = new TextBox();
             tbNama = new TextBox();
             tbEmail = new TextBox();
@@ -22,27 +23,8 @@
             tbPassword = new TextBox();
             tbNoTelp = new TextBox();
             btnSimpan = new Button();
-            cbRole = new ComboBox(); // Tambahan untuk Role
-            panelHeader = new Panel();
-            lblJudul = new Label();
-
-            panelHeader.SuspendLayout();
+            cbRole = new ComboBox();
             SuspendLayout();
-
-            // 
-            // panelHeader (Agar terlihat seperti form Admin lain)
-            // 
-            panelHeader.BackColor = Color.ForestGreen;
-            panelHeader.Controls.Add(lblJudul);
-            panelHeader.Dock = DockStyle.Top;
-            panelHeader.Size = new Size(500, 60);
-
-            lblJudul.AutoSize = true;
-            lblJudul.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblJudul.ForeColor = Color.White;
-            lblJudul.Location = new Point(12, 13);
-            lblJudul.Text = "Form Data Akun";
-
             // 
             // tbUsername
             // 
@@ -51,18 +33,8 @@
             tbUsername.Location = new Point(30, 80);
             tbUsername.Name = "tbUsername";
             tbUsername.Size = new Size(350, 27);
-            tbUsername.Text = "Username"; // Placeholder awal
-
-            // 
-            // tbPassword
-            // 
-            tbPassword.Font = new Font("Calibri", 12F);
-            tbPassword.ForeColor = Color.Silver;
-            tbPassword.Location = new Point(30, 120);
-            tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(350, 27);
-            tbPassword.Text = "Password";
-
+            tbUsername.TabIndex = 1;
+            tbUsername.Text = "Username";
             // 
             // tbNama
             // 
@@ -71,8 +43,8 @@
             tbNama.Location = new Point(30, 160);
             tbNama.Name = "tbNama";
             tbNama.Size = new Size(350, 27);
+            tbNama.TabIndex = 3;
             tbNama.Text = "Nama Lengkap";
-
             // 
             // tbEmail
             // 
@@ -81,39 +53,8 @@
             tbEmail.Location = new Point(30, 200);
             tbEmail.Name = "tbEmail";
             tbEmail.Size = new Size(350, 27);
+            tbEmail.TabIndex = 4;
             tbEmail.Text = "Email";
-
-            // 
-            // cbRole (Tambahan: Admin bisa pilih Role)
-            // 
-            cbRole.Font = new Font("Calibri", 12F);
-            cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbRole.Location = new Point(30, 240);
-            cbRole.Name = "cbRole";
-            cbRole.Size = new Size(350, 27);
-            // Item role akan diisi di kode
-
-            // 
-            // Wilayah (Kabupaten, Kecamatan, Desa)
-            // 
-            cbKabupaten.Font = new Font("Calibri", 12F, FontStyle.Italic);
-            cbKabupaten.ForeColor = Color.Black;
-            cbKabupaten.Location = new Point(30, 280);
-            cbKabupaten.Size = new Size(110, 27);
-            cbKabupaten.Text = "Kabupaten";
-
-            cbKecamatan.Font = new Font("Calibri", 12F, FontStyle.Italic);
-            cbKecamatan.ForeColor = Color.Black;
-            cbKecamatan.Location = new Point(150, 280);
-            cbKecamatan.Size = new Size(110, 27);
-            cbKecamatan.Text = "Kecamatan";
-
-            cbDesa.Font = new Font("Calibri", 12F, FontStyle.Italic);
-            cbDesa.ForeColor = Color.Black;
-            cbDesa.Location = new Point(270, 280);
-            cbDesa.Size = new Size(110, 27);
-            cbDesa.Text = "Desa";
-
             // 
             // tbAlamat
             // 
@@ -122,8 +63,48 @@
             tbAlamat.Location = new Point(30, 320);
             tbAlamat.Name = "tbAlamat";
             tbAlamat.Size = new Size(350, 27);
+            tbAlamat.TabIndex = 9;
             tbAlamat.Text = "Alamat Detail";
-
+            // 
+            // cbKabupaten
+            // 
+            cbKabupaten.Font = new Font("Calibri", 12F, FontStyle.Italic);
+            cbKabupaten.ForeColor = Color.Black;
+            cbKabupaten.Location = new Point(30, 280);
+            cbKabupaten.Name = "cbKabupaten";
+            cbKabupaten.Size = new Size(110, 27);
+            cbKabupaten.TabIndex = 6;
+            cbKabupaten.Text = "Kabupaten";
+            // 
+            // cbKecamatan
+            // 
+            cbKecamatan.Font = new Font("Calibri", 12F, FontStyle.Italic);
+            cbKecamatan.ForeColor = Color.Black;
+            cbKecamatan.Location = new Point(150, 280);
+            cbKecamatan.Name = "cbKecamatan";
+            cbKecamatan.Size = new Size(110, 27);
+            cbKecamatan.TabIndex = 7;
+            cbKecamatan.Text = "Kecamatan";
+            // 
+            // cbDesa
+            // 
+            cbDesa.Font = new Font("Calibri", 12F, FontStyle.Italic);
+            cbDesa.ForeColor = Color.Black;
+            cbDesa.Location = new Point(270, 280);
+            cbDesa.Name = "cbDesa";
+            cbDesa.Size = new Size(110, 27);
+            cbDesa.TabIndex = 8;
+            cbDesa.Text = "Desa";
+            // 
+            // tbPassword
+            // 
+            tbPassword.Font = new Font("Calibri", 12F);
+            tbPassword.ForeColor = Color.Silver;
+            tbPassword.Location = new Point(30, 120);
+            tbPassword.Name = "tbPassword";
+            tbPassword.Size = new Size(350, 27);
+            tbPassword.TabIndex = 2;
+            tbPassword.Text = "Password";
             // 
             // tbNoTelp
             // 
@@ -132,8 +113,8 @@
             tbNoTelp.Location = new Point(30, 360);
             tbNoTelp.Name = "tbNoTelp";
             tbNoTelp.Size = new Size(350, 27);
+            tbNoTelp.TabIndex = 10;
             tbNoTelp.Text = "No Telp.";
-
             // 
             // btnSimpan
             // 
@@ -144,14 +125,25 @@
             btnSimpan.Location = new Point(30, 410);
             btnSimpan.Name = "btnSimpan";
             btnSimpan.Size = new Size(350, 45);
+            btnSimpan.TabIndex = 11;
             btnSimpan.Text = "SIMPAN";
             btnSimpan.UseVisualStyleBackColor = false;
-
-            // Form Setup
+            // 
+            // cbRole
+            // 
+            cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRole.Font = new Font("Calibri", 12F);
+            cbRole.Location = new Point(30, 240);
+            cbRole.Name = "cbRole";
+            cbRole.Size = new Size(350, 27);
+            cbRole.TabIndex = 5;
+            // 
+            // FormAkun
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(420, 500);
-            Controls.Add(panelHeader);
             Controls.Add(tbUsername);
             Controls.Add(tbPassword);
             Controls.Add(tbNama);
@@ -163,17 +155,14 @@
             Controls.Add(tbAlamat);
             Controls.Add(tbNoTelp);
             Controls.Add(btnSimpan);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "FormAkun";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Kelola Akun";
-
-            panelHeader.ResumeLayout(false);
-            panelHeader.PerformLayout();
+            Load += FormAkun_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }
-
-        private Panel panelHeader;
-        private Label lblJudul;
         private TextBox tbUsername, tbNama, tbEmail, tbAlamat, tbPassword, tbNoTelp;
         private ComboBox cbKabupaten, cbKecamatan, cbDesa, cbRole;
         private Button btnSimpan;

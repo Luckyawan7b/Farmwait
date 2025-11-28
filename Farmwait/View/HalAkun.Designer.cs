@@ -12,88 +12,125 @@
 
         private void InitializeComponent()
         {
-            // Komponen
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalAkun));
             panelAdmin = new Panel();
             dgvAkun = new DataGridView();
             btnTambah = new Button();
             lblJudulAdmin = new Label();
-
             panelUser = new Panel();
-            lblInfoUser = new Label(); 
+            lblInfoUser = new Label();
             btnEditProfil = new Button();
-            lblJudulUser = new Label();
             btnKembali = new Button();
-
-            ((System.ComponentModel.ISupportInitialize)dgvAkun).BeginInit();
+            lblJudulUser = new Label();
             panelAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvAkun).BeginInit();
             panelUser.SuspendLayout();
             SuspendLayout();
-
             // 
-            // panelAdmin (Tampilan Tabel)
+            // panelAdmin
             // 
+            panelAdmin.BackgroundImage = (Image)resources.GetObject("panelAdmin.BackgroundImage");
             panelAdmin.Controls.Add(dgvAkun);
             panelAdmin.Controls.Add(btnTambah);
             panelAdmin.Controls.Add(lblJudulAdmin);
-            panelAdmin.Dock = DockStyle.Fill; // Penuhi layar
-            panelAdmin.Visible = false; // Default hidden
-
+            panelAdmin.Dock = DockStyle.Fill;
+            panelAdmin.Location = new Point(0, 0);
+            panelAdmin.Name = "panelAdmin";
+            panelAdmin.Size = new Size(1136, 825);
+            panelAdmin.TabIndex = 0;
+            panelAdmin.Visible = false;
+            // 
             // dgvAkun
+            // 
             dgvAkun.AllowUserToAddRows = false;
-            dgvAkun.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAkun.Location = new Point(20, 80);
-            dgvAkun.Size = new Size(750, 350);
             dgvAkun.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+            dgvAkun.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAkun.Location = new Point(43, 153);
+            dgvAkun.Name = "dgvAkun";
+            dgvAkun.Size = new Size(1054, 640);
+            dgvAkun.TabIndex = 0;
+            // 
             // btnTambah
-            btnTambah.Text = "+ Tambah Akun";
-            btnTambah.Location = new Point(650, 25);
-            btnTambah.Size = new Size(120, 40);
+            // 
             btnTambah.BackColor = Color.ForestGreen;
             btnTambah.ForeColor = Color.White;
-
+            btnTambah.Location = new Point(812, 72);
+            btnTambah.Name = "btnTambah";
+            btnTambah.Size = new Size(120, 40);
+            btnTambah.TabIndex = 1;
+            btnTambah.Text = "+ Tambah Akun";
+            btnTambah.UseVisualStyleBackColor = false;
+            btnTambah.Click += btnTambah_Click;
+            // 
+            // lblJudulAdmin
+            // 
+            lblJudulAdmin.Location = new Point(0, 0);
+            lblJudulAdmin.Name = "lblJudulAdmin";
+            lblJudulAdmin.Size = new Size(100, 23);
+            lblJudulAdmin.TabIndex = 2;
             // 
             // panelUser
             // 
             panelUser.Controls.Add(lblInfoUser);
             panelUser.Controls.Add(btnEditProfil);
-            panelUser.Controls.Add(btnKembali); // Tambahkan ke Panel
+            panelUser.Controls.Add(btnKembali);
             panelUser.Controls.Add(lblJudulUser);
             panelUser.Dock = DockStyle.Fill;
+            panelUser.Location = new Point(0, 0);
+            panelUser.Name = "panelUser";
+            panelUser.Size = new Size(1136, 825);
+            panelUser.TabIndex = 1;
             panelUser.Visible = false;
-
-            // btnEditProfil
-            btnEditProfil.Text = "EDIT PROFIL";
-            btnEditProfil.Location = new Point(50, 400);
-            btnEditProfil.Size = new Size(150, 40);
-            btnEditProfil.BackColor = Color.Orange;
-            btnEditProfil.ForeColor = Color.White;
-
             // 
-            // btnKembali (Tombol Baru)
+            // lblInfoUser
             // 
-            btnKembali.Text = "KEMBALI KE TABEL";
-            btnKembali.Location = new Point(220, 400); // Di sebelah tombol Edit
-            btnKembali.Size = new Size(150, 40);
-            btnKembali.BackColor = Color.Gray;
-            btnKembali.ForeColor = Color.White;
-            btnKembali.Visible = false; // Default hidden (hanya muncul utk admin)
-
-            // lblInfoUser (Menampilkan Text Detail)
             lblInfoUser.Font = new Font("Segoe UI", 12F);
             lblInfoUser.Location = new Point(50, 80);
+            lblInfoUser.Name = "lblInfoUser";
             lblInfoUser.Size = new Size(400, 300);
-            lblInfoUser.Text = "Loading..."; // Nanti diisi kodingan
-
-            // Form
-            ClientSize = new Size(800, 500);
+            lblInfoUser.TabIndex = 0;
+            lblInfoUser.Text = "Loading...";
+            // 
+            // btnEditProfil
+            // 
+            btnEditProfil.BackColor = Color.Orange;
+            btnEditProfil.ForeColor = Color.White;
+            btnEditProfil.Location = new Point(50, 400);
+            btnEditProfil.Name = "btnEditProfil";
+            btnEditProfil.Size = new Size(150, 40);
+            btnEditProfil.TabIndex = 1;
+            btnEditProfil.Text = "EDIT PROFIL";
+            btnEditProfil.UseVisualStyleBackColor = false;
+            // 
+            // btnKembali
+            // 
+            btnKembali.BackColor = Color.Gray;
+            btnKembali.ForeColor = Color.White;
+            btnKembali.Location = new Point(220, 400);
+            btnKembali.Name = "btnKembali";
+            btnKembali.Size = new Size(150, 40);
+            btnKembali.TabIndex = 2;
+            btnKembali.Text = "KEMBALI KE TABEL";
+            btnKembali.UseVisualStyleBackColor = false;
+            btnKembali.Visible = false;
+            // 
+            // lblJudulUser
+            // 
+            lblJudulUser.Location = new Point(0, 0);
+            lblJudulUser.Name = "lblJudulUser";
+            lblJudulUser.Size = new Size(100, 23);
+            lblJudulUser.TabIndex = 3;
+            // 
+            // HalAkun
+            // 
+            ClientSize = new Size(1136, 825);
             Controls.Add(panelAdmin);
             Controls.Add(panelUser);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HalAkun";
             Text = "Profil Akun";
-
-            ((System.ComponentModel.ISupportInitialize)dgvAkun).EndInit();
             panelAdmin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvAkun).EndInit();
             panelUser.ResumeLayout(false);
             ResumeLayout(false);
         }

@@ -43,7 +43,7 @@ namespace Farmwait.View
         public void SetDataEdit(int id, string user, string pass, string nama, string email, string alamat, string telp, string role, int idDesa)
         {
             idAkunCurrent = id;
-            lblJudul.Text = "Edit Data Akun";
+            //lblJudul.Text = "Edit Data Akun";
 
             // Isi Textbox dan matikan placeholder effect sementara
             SetTextValue(tbUsername, user);
@@ -186,6 +186,11 @@ namespace Farmwait.View
             txt.UseSystemPasswordChar = false;
             txt.Enter += (s, e) => { if (txt.Text == placeholder) { txt.Text = ""; txt.ForeColor = Color.Black; txt.UseSystemPasswordChar = true; } };
             txt.Leave += (s, e) => { if (string.IsNullOrWhiteSpace(txt.Text)) { txt.Text = placeholder; txt.ForeColor = Color.Silver; txt.UseSystemPasswordChar = false; } };
+        }
+
+        private void FormAkun_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalTransaksiPembeli));
             dgvPembelian = new DataGridView();
-            produkBindingSource = new BindingSource(components);
             colIDProduk = new DataGridViewTextBoxColumn();
             colNamaProduk = new DataGridViewTextBoxColumn();
             jenisProduk = new DataGridViewTextBoxColumn();
@@ -38,6 +38,7 @@
             jumlahProduk = new DataGridViewTextBoxColumn();
             hargaProduk = new DataGridViewTextBoxColumn();
             colBeli = new DataGridViewButtonColumn();
+            produkBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvPembelian).BeginInit();
             ((System.ComponentModel.ISupportInitialize)produkBindingSource).BeginInit();
             SuspendLayout();
@@ -49,15 +50,11 @@
             dgvPembelian.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPembelian.Columns.AddRange(new DataGridViewColumn[] { colIDProduk, colNamaProduk, jenisProduk, idHewan, jumlahProduk, hargaProduk, colBeli });
             dgvPembelian.DataSource = produkBindingSource;
-            dgvPembelian.Location = new Point(37, 136);
+            dgvPembelian.Location = new Point(37, 168);
             dgvPembelian.Name = "dgvPembelian";
-            dgvPembelian.Size = new Size(1071, 524);
+            dgvPembelian.Size = new Size(1071, 492);
             dgvPembelian.TabIndex = 0;
             dgvPembelian.CellContentClick += dgvPembelian_CellContentClick;
-            // 
-            // produkBindingSource
-            // 
-            produkBindingSource.DataSource = typeof(Models.Produk);
             // 
             // colIDProduk
             // 
@@ -103,12 +100,18 @@
             colBeli.Text = "BELI";
             colBeli.UseColumnTextForButtonValue = true;
             // 
+            // produkBindingSource
+            // 
+            produkBindingSource.DataSource = typeof(Models.Produk);
+            // 
             // HalTransaksiPembeli
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1136, 825);
             Controls.Add(dgvPembelian);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HalTransaksiPembeli";
             Text = "HalTransaksiPembeli";
             Load += HalTransaksiPembeli_Load;

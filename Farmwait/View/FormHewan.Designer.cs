@@ -181,6 +181,7 @@
             Controls.Add(tbPorsi);
             Controls.Add(btnSimpan);
             Controls.Add(btnBatal);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormHewan";
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);

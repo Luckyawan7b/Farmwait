@@ -89,5 +89,10 @@ namespace Farmwait.View
             halTransaksiPembeli.ShowDialog();
             this.Show();
         }
+
+        private void HalUtama_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

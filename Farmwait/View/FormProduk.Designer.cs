@@ -156,6 +156,7 @@
             Controls.Add(cbHewan);
             Controls.Add(tbJumlah);
             Controls.Add(tbHarga);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormProduk";
             StartPosition = FormStartPosition.CenterScreen;
             Load += FormProduk_Load_1;

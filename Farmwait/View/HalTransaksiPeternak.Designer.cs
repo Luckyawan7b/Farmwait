@@ -111,6 +111,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1136, 825);
             Controls.Add(dgvTransaksi);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HalTransaksiPeternak";
             Text = "HalTransaksiPeternak";
             Load += HalTransaksiPeternak_Load;

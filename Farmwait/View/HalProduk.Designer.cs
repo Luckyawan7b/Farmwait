@@ -52,6 +52,7 @@
             ClientSize = new Size(1136, 825);
             Controls.Add(dgvProduk);
             Controls.Add(btnTambah);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HalProduk";
             Text = "Halaman Produk";
             ((System.ComponentModel.ISupportInitialize)dgvProduk).EndInit();

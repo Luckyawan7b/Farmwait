@@ -11,7 +11,7 @@ namespace Farmwait.View
     {
         private AkunController controller;
         private string userRole;
-        private int currentUserId; 
+        private int currentUserId;
         private int selectedUserId;
 
         // Constructor menerima Role DAN ID User
@@ -26,10 +26,11 @@ namespace Farmwait.View
 
             // Event Handlers
             dgvAkun.CellContentClick += DgvAkun_CellContentClick;
-            btnTambah.Click += BtnTambah_Click;
+            btnTambah.Click += btnTambah_Click;
             btnEditProfil.Click += BtnEditProfil_Click;
 
-            btnKembali.Click += (s, e) => {
+            btnKembali.Click += (s, e) =>
+            {
                 panelUser.Visible = false;
                 panelAdmin.Visible = true;
             };
@@ -112,7 +113,7 @@ namespace Farmwait.View
                 LoadUserProfile(idDipilih);
             }
         }
-        private void BtnTambah_Click(object sender, EventArgs e)
+        private void btnTambah_Click(object sender, EventArgs e)
         {
             FormAkun form = new FormAkun();
             if (form.ShowDialog() == DialogResult.OK)
@@ -169,6 +170,7 @@ namespace Farmwait.View
                 }
             }
         }
+
 
     }
 

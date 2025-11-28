@@ -188,9 +188,11 @@
             Controls.Add(btnKelolaPakan);
             Controls.Add(btnLogout);
             Controls.Add(lblSelamatDatang);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HalUtama";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Farmwait - Halaman Utama";
+            Load += HalUtama_Load;
             ResumeLayout(false);
             PerformLayout();
         }

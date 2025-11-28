@@ -55,6 +55,7 @@
             ClientSize = new Size(1136, 825);
             Controls.Add(dgvHewan);
             Controls.Add(btnTambah);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HalHewan";
             Text = "Halaman Hewan";
             ((System.ComponentModel.ISupportInitialize)dgvHewan).EndInit();
