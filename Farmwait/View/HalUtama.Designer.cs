@@ -171,6 +171,7 @@
             btnTransaksi.TabIndex = 8;
             btnTransaksi.Text = "TRANSAKSI";
             btnTransaksi.UseVisualStyleBackColor = false;
+            btnTransaksi.Click += btnTransaksi_Click;
             // 
             // HalUtama
             // 

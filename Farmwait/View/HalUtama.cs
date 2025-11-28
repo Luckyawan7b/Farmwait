@@ -81,5 +81,13 @@ namespace Farmwait.View
             transaksiPeternak.ShowDialog();
             this.Show();
         }
+
+        private void btnTransaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HalTransaksiPembeli halTransaksiPembeli = new HalTransaksiPembeli(this.idUser);
+            halTransaksiPembeli.ShowDialog();
+            this.Show();
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace Farmwait.View
         }
 
    
-            private void dgvTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // 1. Cek apakah yang diklik adalah kolom tombol "colEdit" (Pastikan nama kolomnya bener ya)
             //    && Pastikan bukan header tabel (RowIndex >= 0)
