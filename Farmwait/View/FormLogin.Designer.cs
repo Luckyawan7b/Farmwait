@@ -101,8 +101,9 @@
             Controls.Add(tbPasswordLogin);
             Controls.Add(tbUsernameLogin);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormLogin";
-            Text = "Form1";
+            Text = "Form Login";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalTransaksiPeternak));
             dgvTransaksi = new DataGridView();
-            transaksiBindingSource = new BindingSource(components);
             idTransaksi = new DataGridViewTextBoxColumn();
             tanggalTransaksi = new DataGridViewTextBoxColumn();
             idAkun = new DataGridViewTextBoxColumn();
@@ -38,6 +38,7 @@
             idProduk = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             colEdit = new DataGridViewButtonColumn();
+            transaksiBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvTransaksi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transaksiBindingSource).BeginInit();
             SuspendLayout();
@@ -49,15 +50,11 @@
             dgvTransaksi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTransaksi.Columns.AddRange(new DataGridViewColumn[] { idTransaksi, tanggalTransaksi, idAkun, metodePembayaran, idProduk, status, colEdit });
             dgvTransaksi.DataSource = transaksiBindingSource;
-            dgvTransaksi.Location = new Point(24, 118);
+            dgvTransaksi.Location = new Point(24, 169);
             dgvTransaksi.Name = "dgvTransaksi";
-            dgvTransaksi.Size = new Size(1076, 550);
+            dgvTransaksi.Size = new Size(1076, 499);
             dgvTransaksi.TabIndex = 0;
             dgvTransaksi.CellContentClick += dgvTransaksi_CellContentClick;
-            // 
-            // transaksiBindingSource
-            // 
-            transaksiBindingSource.DataSource = typeof(Models.Transaksi);
             // 
             // idTransaksi
             // 
@@ -103,10 +100,15 @@
             colEdit.Text = "EDIT";
             colEdit.UseColumnTextForButtonValue = true;
             // 
+            // transaksiBindingSource
+            // 
+            transaksiBindingSource.DataSource = typeof(Models.Transaksi);
+            // 
             // HalTransaksiPeternak
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1136, 825);
             Controls.Add(dgvTransaksi);
             Name = "HalTransaksiPeternak";

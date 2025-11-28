@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransaksiPeternak));
             lblIDTransaksi = new Label();
             lblTanggalTransaksi = new Label();
             lblIDAkun = new Label();
@@ -49,7 +50,7 @@
             lblIDTransaksi.AutoSize = true;
             lblIDTransaksi.BackColor = Color.Transparent;
             lblIDTransaksi.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblIDTransaksi.Location = new Point(53, 63);
+            lblIDTransaksi.Location = new Point(20, 113);
             lblIDTransaksi.Name = "lblIDTransaksi";
             lblIDTransaksi.Size = new Size(88, 19);
             lblIDTransaksi.TabIndex = 0;
@@ -60,7 +61,7 @@
             lblTanggalTransaksi.AutoSize = true;
             lblTanggalTransaksi.BackColor = Color.Transparent;
             lblTanggalTransaksi.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTanggalTransaksi.Location = new Point(53, 108);
+            lblTanggalTransaksi.Location = new Point(20, 158);
             lblTanggalTransaksi.Name = "lblTanggalTransaksi";
             lblTanggalTransaksi.Size = new Size(125, 19);
             lblTanggalTransaksi.TabIndex = 1;
@@ -71,7 +72,7 @@
             lblIDAkun.AutoSize = true;
             lblIDAkun.BackColor = Color.Transparent;
             lblIDAkun.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblIDAkun.Location = new Point(53, 157);
+            lblIDAkun.Location = new Point(20, 207);
             lblIDAkun.Name = "lblIDAkun";
             lblIDAkun.Size = new Size(59, 19);
             lblIDAkun.TabIndex = 2;
@@ -82,7 +83,7 @@
             lblMetodePembayaran.AutoSize = true;
             lblMetodePembayaran.BackColor = Color.Transparent;
             lblMetodePembayaran.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMetodePembayaran.Location = new Point(53, 208);
+            lblMetodePembayaran.Location = new Point(262, 110);
             lblMetodePembayaran.Name = "lblMetodePembayaran";
             lblMetodePembayaran.Size = new Size(143, 19);
             lblMetodePembayaran.TabIndex = 3;
@@ -93,7 +94,7 @@
             lblStatus.AutoSize = true;
             lblStatus.BackColor = Color.Transparent;
             lblStatus.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblStatus.Location = new Point(53, 305);
+            lblStatus.Location = new Point(262, 208);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(49, 19);
             lblStatus.TabIndex = 4;
@@ -103,59 +104,67 @@
             // 
             cbStatus.FormattingEnabled = true;
             cbStatus.Items.AddRange(new object[] { "Proses", "Dikirim", "Selesai" });
-            cbStatus.Location = new Point(222, 305);
+            cbStatus.Location = new Point(383, 203);
             cbStatus.Name = "cbStatus";
-            cbStatus.Size = new Size(152, 23);
+            cbStatus.Size = new Size(108, 23);
             cbStatus.TabIndex = 5;
             // 
             // btnSimpan
             // 
-            btnSimpan.Location = new Point(458, 386);
+            btnSimpan.BackColor = Color.Green;
+            btnSimpan.Font = new Font("Nirmala UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnSimpan.ForeColor = Color.White;
+            btnSimpan.Location = new Point(98, 278);
             btnSimpan.Name = "btnSimpan";
-            btnSimpan.Size = new Size(151, 32);
+            btnSimpan.Size = new Size(129, 47);
             btnSimpan.TabIndex = 6;
             btnSimpan.Text = "SIMPAN";
-            btnSimpan.UseVisualStyleBackColor = true;
+            btnSimpan.UseVisualStyleBackColor = false;
+            btnSimpan.Click += btnSimpan_Click_1;
             // 
             // btnBatal
             // 
-            btnBatal.Location = new Point(222, 373);
+            btnBatal.BackColor = Color.FromArgb(192, 0, 0);
+            btnBatal.Font = new Font("Nirmala UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnBatal.ForeColor = Color.White;
+            btnBatal.Location = new Point(262, 278);
             btnBatal.Name = "btnBatal";
-            btnBatal.Size = new Size(164, 45);
+            btnBatal.Size = new Size(129, 47);
             btnBatal.TabIndex = 7;
             btnBatal.Text = "BATAL";
-            btnBatal.UseVisualStyleBackColor = true;
+            btnBatal.UseVisualStyleBackColor = false;
+            btnBatal.Click += btnBatal_Click_1;
             // 
             // tbIDTransaksi
             // 
-            tbIDTransaksi.Location = new Point(222, 59);
+            tbIDTransaksi.Location = new Point(159, 110);
             tbIDTransaksi.Name = "tbIDTransaksi";
             tbIDTransaksi.ReadOnly = true;
-            tbIDTransaksi.Size = new Size(143, 23);
+            tbIDTransaksi.Size = new Size(77, 23);
             tbIDTransaksi.TabIndex = 8;
             // 
             // tbTanggalTransaksi
             // 
-            tbTanggalTransaksi.Location = new Point(222, 104);
+            tbTanggalTransaksi.Location = new Point(159, 155);
             tbTanggalTransaksi.Name = "tbTanggalTransaksi";
             tbTanggalTransaksi.ReadOnly = true;
-            tbTanggalTransaksi.Size = new Size(143, 23);
+            tbTanggalTransaksi.Size = new Size(77, 23);
             tbTanggalTransaksi.TabIndex = 9;
             // 
             // tbIDAkun
             // 
-            tbIDAkun.Location = new Point(222, 153);
+            tbIDAkun.Location = new Point(159, 204);
             tbIDAkun.Name = "tbIDAkun";
             tbIDAkun.ReadOnly = true;
-            tbIDAkun.Size = new Size(143, 23);
+            tbIDAkun.Size = new Size(77, 23);
             tbIDAkun.TabIndex = 10;
             // 
             // tbMetodePembayaran
             // 
-            tbMetodePembayaran.Location = new Point(222, 204);
+            tbMetodePembayaran.Location = new Point(414, 106);
             tbMetodePembayaran.Name = "tbMetodePembayaran";
             tbMetodePembayaran.ReadOnly = true;
-            tbMetodePembayaran.Size = new Size(143, 23);
+            tbMetodePembayaran.Size = new Size(77, 23);
             tbMetodePembayaran.TabIndex = 11;
             // 
             // lblIDProduk
@@ -163,7 +172,7 @@
             lblIDProduk.AutoSize = true;
             lblIDProduk.BackColor = Color.Transparent;
             lblIDProduk.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblIDProduk.Location = new Point(53, 256);
+            lblIDProduk.Location = new Point(262, 158);
             lblIDProduk.Name = "lblIDProduk";
             lblIDProduk.Size = new Size(71, 19);
             lblIDProduk.TabIndex = 12;
@@ -171,17 +180,18 @@
             // 
             // tbIDProduk
             // 
-            tbIDProduk.Location = new Point(222, 252);
+            tbIDProduk.Location = new Point(414, 154);
             tbIDProduk.Name = "tbIDProduk";
             tbIDProduk.ReadOnly = true;
-            tbIDProduk.Size = new Size(143, 23);
+            tbIDProduk.Size = new Size(77, 23);
             tbIDProduk.TabIndex = 13;
             // 
             // FormTransaksiPeternak
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(500, 360);
             Controls.Add(tbIDProduk);
             Controls.Add(lblIDProduk);
             Controls.Add(tbMetodePembayaran);
@@ -196,6 +206,7 @@
             Controls.Add(lblIDAkun);
             Controls.Add(lblTanggalTransaksi);
             Controls.Add(lblIDTransaksi);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormTransaksiPeternak";
             Text = "FormTransaksiPeternak";
             Load += FormTransaksiPeternak_Load;

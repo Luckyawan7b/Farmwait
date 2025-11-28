@@ -175,6 +175,7 @@
             Controls.Add(tbEmailRegister);
             Controls.Add(tbNamaRegister);
             Controls.Add(tbUsernameRegister);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormRegister";
             Text = "Register";
             ResumeLayout(false);

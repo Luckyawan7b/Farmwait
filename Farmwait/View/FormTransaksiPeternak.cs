@@ -39,7 +39,14 @@ namespace Farmwait.View
             tbIDProduk.ReadOnly = true;
         }
 
-        private void btnSimpan_Click(object sender, EventArgs e)
+
+
+        private void btnBatal_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSimpan_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -53,11 +60,6 @@ namespace Farmwait.View
             {
                 MessageBox.Show("Gagal update: " + ex.Message);
             }
-        }
-
-        private void btnBatal_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

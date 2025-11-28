@@ -9,7 +9,7 @@ namespace Farmwait.Models
     // Disini: Id = idhewan, Nama = jenishewan
     public class Hewan : ItemGudang
     {
-        // [ENKAPSULASI] Properti public dengan private backing fields (implisit)
+        // [ENKAPSULASI] nanti taruh di sini
         public string JenisKelamin { get; set; }
         public int Berat { get; set; }
         public int Usia { get; set; }
