@@ -26,7 +26,7 @@ namespace Farmwait.View
 
             // Event Handlers
             dgvAkun.CellContentClick += DgvAkun_CellContentClick;
-            btnTambah.Click += btnTambah_Click;
+            //btnTambah.Click += btnTambah_Click;
             btnEditProfil.Click += BtnEditProfil_Click;
 
             btnKembali.Click += (s, e) =>
@@ -171,7 +171,10 @@ namespace Farmwait.View
             }
         }
 
+        private void panelAdmin_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 
 }

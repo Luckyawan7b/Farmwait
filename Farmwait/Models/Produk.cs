@@ -8,11 +8,53 @@ namespace Farmwait.Models
     // [INHERITANCE] Produk adalah ItemGudang
     public class Produk : ItemGudang
     {
-        // [ENCAPSULATION] Property khusus produk
-        public string JenisProduk { get; set; }
-        public int IdHewan { get; set; } // Relasi ke hewan asal
-        public int JumlahProduk { get; set; }
-        public int HargaProduk { get; set; }
+        // ==========================================
+        // 1. ENKAPSULASI: PRIVATE FIELDS
+        // ==========================================
+        private string _jenisProduk;
+        private int _idHewan;
+        private int _jumlahProduk;
+        private int _hargaProduk;
+
+        // ==========================================
+        // 2. ENKAPSULASI: PUBLIC PROPERTIES
+        // ==========================================
+        public string JenisProduk
+        {
+            get { return _jenisProduk; }
+            set { _jenisProduk = value; }
+        }
+
+        public int IdHewan
+        {
+            get { return _idHewan; }
+            set { _idHewan = value; }
+        }
+
+        public int JumlahProduk
+        {
+            get { return _jumlahProduk; }
+            set
+            {
+                if (value < 0) _jumlahProduk = 0; // Stok tidak boleh minus
+                else _jumlahProduk = value;
+            }
+        }
+
+        public int HargaProduk
+        {
+            get { return _hargaProduk; }
+            set
+            {
+                if (value < 0) _hargaProduk = 0; // Harga tidak boleh minus
+                else _hargaProduk = value;
+            }
+        }
+
+
+        // ==========================================
+        // 3. METHODS
+        // ==========================================
 
         // [ABSTRACTION] Implementasi method abstrak
         public override string GetInfoLengkap()
@@ -51,8 +93,6 @@ namespace Farmwait.Models
             }
         }
 
-        // [POLIMORFISME] Method Instance Update Data
-        // Method untuk mengurangi stok setelah pembelian sukses
         public static void KurangiStok(int idProduk, int jumlahDibeli)
         {
             try
@@ -60,22 +100,17 @@ namespace Farmwait.Models
                 using (var conn = Koneksi.GetConnection())
                 {
                     conn.Open();
-                    // Query UPDATE matematika sederhana (Stok Lama - Jumlah Beli)
                     string sql = "UPDATE public.produk SET jumlahproduk = jumlahproduk - @dibeli WHERE idproduk = @id";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@dibeli", jumlahDibeli);
                         cmd.Parameters.AddWithValue("@id", idProduk);
-
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Gagal update stok: " + ex.Message);
-            }
+            catch (Exception ex) { throw new Exception("Gagal update stok: " + ex.Message); }
         }
 
         public bool UpdateData()
@@ -109,7 +144,7 @@ namespace Farmwait.Models
                 return false;
             }
         }
-        // [POLYMORPHISM] Method Instance untuk Soft Delete
+
         public bool HapusData()
         {
             try
@@ -117,9 +152,7 @@ namespace Farmwait.Models
                 using (var conn = Koneksi.GetConnection())
                 {
                     conn.Open();
-                    // Soft Delete: is_deleted = true
                     string query = "UPDATE public.produk SET is_deleted = true WHERE idproduk = @id";
-
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@id", this.Id);
@@ -135,7 +168,6 @@ namespace Farmwait.Models
             }
         }
 
-        // Static Method: Load Data (WHERE is_deleted = false)
         public static DataTable AmbilSemuaProduk()
         {
             DataTable dt = new DataTable();
@@ -148,20 +180,13 @@ namespace Farmwait.Models
                                      FROM public.produk 
                                      WHERE is_deleted = false 
                                      ORDER BY idproduk ASC";
-
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            dt.Load(reader);
-                        }
+                        using (var reader = cmd.ExecuteReader()) dt.Load(reader);
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error Load Produk: " + ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show("Error Load Produk: " + ex.Message); }
             return dt;
         }
     }

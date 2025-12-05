@@ -15,7 +15,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalAkun));
             panelAdmin = new Panel();
             dgvAkun = new DataGridView();
-            btnTambah = new Button();
             lblJudulAdmin = new Label();
             panelUser = new Panel();
             lblInfoUser = new Label();
@@ -31,7 +30,6 @@
             // 
             panelAdmin.BackgroundImage = (Image)resources.GetObject("panelAdmin.BackgroundImage");
             panelAdmin.Controls.Add(dgvAkun);
-            panelAdmin.Controls.Add(btnTambah);
             panelAdmin.Controls.Add(lblJudulAdmin);
             panelAdmin.Dock = DockStyle.Fill;
             panelAdmin.Location = new Point(0, 0);
@@ -39,6 +37,7 @@
             panelAdmin.Size = new Size(1136, 825);
             panelAdmin.TabIndex = 0;
             panelAdmin.Visible = false;
+            panelAdmin.Paint += panelAdmin_Paint;
             // 
             // dgvAkun
             // 
@@ -49,18 +48,6 @@
             dgvAkun.Name = "dgvAkun";
             dgvAkun.Size = new Size(1054, 640);
             dgvAkun.TabIndex = 0;
-            // 
-            // btnTambah
-            // 
-            btnTambah.BackColor = Color.ForestGreen;
-            btnTambah.ForeColor = Color.White;
-            btnTambah.Location = new Point(812, 72);
-            btnTambah.Name = "btnTambah";
-            btnTambah.Size = new Size(120, 40);
-            btnTambah.TabIndex = 1;
-            btnTambah.Text = "+ Tambah Akun";
-            btnTambah.UseVisualStyleBackColor = false;
-            btnTambah.Click += btnTambah_Click;
             // 
             // lblJudulAdmin
             // 
@@ -137,7 +124,6 @@
 
         private Panel panelAdmin;
         private DataGridView dgvAkun;
-        private Button btnTambah;
         private Label lblJudulAdmin;
 
         private Panel panelUser;

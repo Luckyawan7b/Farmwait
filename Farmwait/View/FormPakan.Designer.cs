@@ -108,6 +108,7 @@
             btnSimpan.TabIndex = 7;
             btnSimpan.Text = "SIMPAN";
             btnSimpan.UseVisualStyleBackColor = false;
+            btnSimpan.Click += btnSimpan_Click;
             // 
             // btnBatal
             // 
@@ -121,6 +122,7 @@
             btnBatal.TabIndex = 9;
             btnBatal.Text = "BATAL";
             btnBatal.UseVisualStyleBackColor = false;
+            btnBatal.Click += btnBatal_Click;
             // 
             // FormPakan
             // 

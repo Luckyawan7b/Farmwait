@@ -1,12 +1,5 @@
-﻿using Farmwait.Models; // <-- Jangan lupa tambahkan ini biar kenal class Transaksi
+﻿using Farmwait.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Farmwait.View
@@ -18,16 +11,42 @@ namespace Farmwait.View
             InitializeComponent();
         }
 
-        // INI YANG AKAN MUNCUL SETELAH DOUBLE CLICK BACKGROUND
         private void HalTransaksiPeternak_Load(object sender, EventArgs e)
         {
-            // Masukkan logika pemanggilan data di sini
+            LoadData();
+        }
+
+        private void LoadData()
+        {
             try
             {
-                // Panggil method statis dari Model Transaksi
+                // Panggil data dari Model (sudah ada nama produk & jumlah)
                 dgvTransaksi.DataSource = Transaksi.AmbilSemua();
 
-                // Rapikan kolom
+                // Rapikan Header Kolom
+                // Gunakan Nama Kolom (huruf kecil) sesuai hasil Query Database (PostgreSQL)
+                if (dgvTransaksi.Columns.Contains("idtransaksi"))
+                    dgvTransaksi.Columns["idtransaksi"].HeaderText = "ID Transaksi";
+
+                if (dgvTransaksi.Columns.Contains("tanggaltransaksi"))
+                    dgvTransaksi.Columns["tanggaltransaksi"].HeaderText = "Tanggal";
+
+                if (dgvTransaksi.Columns.Contains("idakun"))
+                    dgvTransaksi.Columns["idakun"].HeaderText = "ID Pembeli";
+
+                if (dgvTransaksi.Columns.Contains("metodepembayaran"))
+                    dgvTransaksi.Columns["metodepembayaran"].HeaderText = "Metode";
+
+                // === KOLOM BARU DARI JOIN ===
+                if (dgvTransaksi.Columns.Contains("namaproduk"))
+                    dgvTransaksi.Columns["namaproduk"].HeaderText = "Item Dibeli";
+
+                if (dgvTransaksi.Columns.Contains("jumlah"))
+                    dgvTransaksi.Columns["jumlah"].HeaderText = "Qty";
+
+                if (dgvTransaksi.Columns.Contains("totalharga"))
+                    dgvTransaksi.Columns["totalharga"].HeaderText = "Total (Rp)";
+
                 dgvTransaksi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
@@ -36,51 +55,41 @@ namespace Farmwait.View
             }
         }
 
-        // Biarkan kosong saja kalau tidak dipakai
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-   
         private void dgvTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // 1. Cek apakah yang diklik adalah kolom tombol "colEdit" (Pastikan nama kolomnya bener ya)
-            //    && Pastikan bukan header tabel (RowIndex >= 0)
-            if (e.ColumnIndex == dgvTransaksi.Columns["colEdit"].Index && e.RowIndex >= 0)
+            // Validasi: Pastikan baris yg diklik bukan header, dan yg diklik kolom tombol "colEdit"
+            // (Sesuaikan "colEdit" dengan nama tombol Edit di designer bapak)
+            if (e.RowIndex >= 0 && dgvTransaksi.Columns.Contains("colEdit") && e.ColumnIndex == dgvTransaksi.Columns["colEdit"].Index)
             {
-                // 2. Ambil baris yang sedang diklik
                 DataGridViewRow row = dgvTransaksi.Rows[e.RowIndex];
 
-                // 3. Ambil data dari sel. 
-                // PENTING: Karena pakai PostgreSQL, nama kolom biasanya HURUF KECIL SEMUA.
-                // Sesuaikan string di dalam ["..."] dengan nama kolom di Database pgAdmin Bapak.
-                // GANTI BAGIAN INI:
-                string id = row.Cells["idTransaksi"].Value.ToString();       // I besar
-                string tgl = row.Cells["tanggalTransaksi"].Value.ToString(); // T besar
-                string akun = row.Cells["idAkun"].Value.ToString();          // I & A besar
-                string metode = row.Cells["metodePembayaran"].Value.ToString(); // M & P besar
-                string produk = row.Cells["idProduk"].Value.ToString();      // I & P besar
-                string status = row.Cells["status"].Value.ToString();        // S besar
+                // === JURUS SAKTI (ANTI ERROR NAMA KOLOM) ===
+                // Kita ambil data langsung dari 'DataRowView' (Sumber datanya).
+                // Jadi mau nama kolom di tabel UI-nya apa aja, GAK NGARUH.
+                // Yang penting nama di ["..."] SAMA dengan nama di QUERY DATABASE (Model Transaksi).
 
-                // 4. Panggil Form Pop-up (Kirim paket data lengkap)
-                FormTransaksiPeternak formPopUp = new FormTransaksiPeternak(id, tgl, akun, metode, produk, status);
+                System.Data.DataRowView itemAsli = (System.Data.DataRowView)row.DataBoundItem;
 
-                // 5. Tampilkan sebagai Dialog (User harus tutup pop-up dulu baru bisa balik)
+                string id = itemAsli["idtransaksi"].ToString();
+                string tgl = itemAsli["tanggaltransaksi"].ToString();
+                string akun = itemAsli["idakun"].ToString();
+                string metode = itemAsli["metodepembayaran"].ToString();
+
+                // Nah, ini pasti aman sekarang, karena di Query Transaksi.cs udah ada 'namaproduk'
+                string namaProduk = itemAsli["namaproduk"].ToString();
+
+                string status = itemAsli["status"].ToString();
+
+                // Buka Pop-up
+                FormTransaksiPeternak formPopUp = new FormTransaksiPeternak(id, tgl, akun, metode, namaProduk, status);
                 formPopUp.ShowDialog();
 
-                // 6. REFRESH TABEL (Panggil ulang fungsi load biar status barunya muncul)
-                // Kita copy logika yang ada di HalTransaksiPeternak_Load
-                try
-                {
-                    dgvTransaksi.DataSource = Transaksi.AmbilSemua();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal refresh: " + ex.Message);
-                }
+                // Refresh Data
+                LoadData();
             }
         }
-    
     }
 }
+
+                // Buka Form Pop-up Edit
+                // Pastikan FormTransaksiPeternak constructor-nya sudah dis

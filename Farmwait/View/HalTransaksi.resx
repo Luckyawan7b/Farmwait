@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="colNamaProduk.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Jumlah.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TotalHarga.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colEdit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -127,7 +136,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABIAAAANgCAYAAABUSxNWAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAaZ1JREFUeF7t/VeUZVW9N/yfu/fqCVf/izPG84xz8T7pPec5QndVBxoJCpKzCihZ
+        DwAACw8BkvkDpQAAaZ1JREFUeF7t/VeUZVW9N/yfu/fqCVf/izPG84xz8T7pPec5QndVBxoJCpKzCihZ
         BQS6K3WTkaCSuis2TTcZBFEQEEkSJaNkMaCISI4eI2aR33/MVbW7q9fea9Wu6qKpmnwc4zOarlpxrrW3
         c357hn/6xy+/HwAAAADk65/KPwAAAAAgLwIgAAAAgMwJgAAAAAAyJwACAAAAyJwACAAAACBzAiAAAACA
         zAmAAAAAADInAAIAAADInAAIAAAAIHMCIAAAAIDMCYAAAAAAMicAAgAAAMicAAgAAAAgcwIgAAAAgMwJ

@@ -6,15 +6,65 @@ using System.Windows.Forms;
 namespace Farmwait.Models
 {
     // [PEWARISAN] Hewan mewarisi ItemGudang (Id & Nama)
-    // Disini: Id = idhewan, Nama = jenishewan
     public class Hewan : ItemGudang
     {
-        // [ENKAPSULASI] nanti taruh di sini
-        public string JenisKelamin { get; set; }
-        public int Berat { get; set; }
-        public int Usia { get; set; }
-        public int IdPakan { get; set; }
-        public int PorsiPakan { get; set; }
+        // ==========================================
+        // 1. ENKAPSULASI: PRIVATE FIELDS
+        // ==========================================
+        private string _jenisKelamin;
+        private int _berat;
+        private int _usia;
+        private int _idPakan;
+        private int _porsiPakan;
+
+        // ==========================================
+        // 2. ENKAPSULASI: PUBLIC PROPERTIES
+        // ==========================================
+        public string JenisKelamin
+        {
+            get { return _jenisKelamin; }
+            set { _jenisKelamin = value; }
+        }
+
+        public int Berat
+        {
+            get { return _berat; }
+            set
+            {
+                if (value < 0) _berat = 0; // Validasi: Berat tidak boleh minus
+                else _berat = value;
+            }
+        }
+
+        public int Usia
+        {
+            get { return _usia; }
+            set
+            {
+                if (value < 0) _usia = 0;
+                else _usia = value;
+            }
+        }
+
+        public int IdPakan
+        {
+            get { return _idPakan; }
+            set { _idPakan = value; }
+        }
+
+        public int PorsiPakan
+        {
+            get { return _porsiPakan; }
+            set
+            {
+                if (value < 0) _porsiPakan = 0;
+                else _porsiPakan = value;
+            }
+        }
+
+        // ==========================================
+        // 3. METHODS (ABSTRAKSI & POLIMORFISME)
+        // ==========================================
 
         // [ABSTRAKSI] Implementasi method abstract dari parent
         public override string GetInfoLengkap()
@@ -112,7 +162,6 @@ namespace Farmwait.Models
             }
         }
 
-        // Static Method untuk Load Data (Hanya mengambil yang is_deleted = false)
         public static DataTable AmbilSemuaHewan()
         {
             DataTable dt = new DataTable();
@@ -121,27 +170,19 @@ namespace Farmwait.Models
                 using (var conn = Koneksi.GetConnection())
                 {
                     conn.Open();
-                    // Filter: WHERE is_deleted = false
-                    string query = @"SELECT 
-                                        idhewan, jenishewan, jeniskelamin, berat, 
-                                        usia, idpakan, porsipakan 
+                    string query = @"SELECT idhewan, jenishewan, jeniskelamin, berat, 
+                                            usia, idpakan, porsipakan 
                                      FROM public.hewan 
                                      WHERE is_deleted = false 
                                      ORDER BY idhewan ASC";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            dt.Load(reader);
-                        }
+                        using (var reader = cmd.ExecuteReader()) dt.Load(reader);
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error Load Data: " + ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show("Error Load Data: " + ex.Message); }
             return dt;
         }
     }

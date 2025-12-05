@@ -47,5 +47,15 @@ namespace Farmwait.View
                 this.Close();
             }
         }
+
+        private void btnSimpan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBatal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

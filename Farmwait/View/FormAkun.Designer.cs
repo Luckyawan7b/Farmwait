@@ -128,6 +128,7 @@
             btnSimpan.TabIndex = 11;
             btnSimpan.Text = "SIMPAN";
             btnSimpan.UseVisualStyleBackColor = false;
+            btnSimpan.Click += BtnSimpan_Click;
             // 
             // cbRole
             // 
@@ -159,7 +160,7 @@
             Name = "FormAkun";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Kelola Akun";
-            Load += FormAkun_Load_1;
+            Load += FormAkun_Load;
             ResumeLayout(false);
             PerformLayout();
         }

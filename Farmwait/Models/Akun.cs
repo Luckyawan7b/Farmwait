@@ -7,15 +7,89 @@ namespace Farmwait.Models
 {
     public class Akun
     {
-        public int IdAkun { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Nama { get; set; }
-        public string Alamat { get; set; }
-        public string Email { get; set; }
-        public string Telp { get; set; }
-        public int IdDesa { get; set; }
-        public string Role { get; set; }
+        // ==========================================
+        // 1. ENKAPSULASI: PRIVATE FIELDS (BACKING FIELDS)
+        // ==========================================
+        // Variable ini hanya bisa diakses di dalam class ini saja
+        private int _idAkun;
+        private string _username;
+        private string _password;
+        private string _nama;
+        private string _alamat;
+        private string _email;
+        private string _telp;
+        private int _idDesa;
+        private string _role;
+
+        // ==========================================
+        // 2. ENKAPSULASI: PUBLIC PROPERTIES
+        // ==========================================
+        // Bagian ini yang diakses oleh class lain (Controller/View)
+
+        public int IdAkun
+        {
+            get { return _idAkun; }
+            set { _idAkun = value; }
+        }
+
+        public string Username
+        {
+            get { return _username; }
+            set
+            {
+                // Contoh Validasi Enkapsulasi: Mencegah Username kosong
+                if (!string.IsNullOrWhiteSpace(value))
+                    _username = value;
+                else
+                    _username = "Unknown"; // Default value jika input error
+            }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
+
+        public string Nama
+        {
+            get { return _nama; }
+            set { _nama = value; }
+        }
+
+        public string Alamat
+        {
+            get { return _alamat; }
+            set { _alamat = value; }
+        }
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+
+        public string Telp
+        {
+            get { return _telp; }
+            set { _telp = value; }
+        }
+
+        public int IdDesa
+        {
+            get { return _idDesa; }
+            set { _idDesa = value; }
+        }
+
+        public string Role
+        {
+            get { return _role; }
+            set { _role = value; }
+        }
+
+        // ==========================================
+        // 3. METHODS (Logika Database Tetap Sama)
+        // ==========================================
 
         public static bool Daftar(string username, string password, string nama, string email, string alamat, string telp, int idDesa)
         {
@@ -25,7 +99,6 @@ namespace Farmwait.Models
                 {
                     conn.Open();
 
-                    // Query insert lengkap
                     string query = @"
                         INSERT INTO public.""akun"" 
                         (username, password, nama, alamat, email, telp, iddesa, role)
@@ -36,7 +109,7 @@ namespace Farmwait.Models
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password); // Sebaiknya di-hash di real app
+                        cmd.Parameters.AddWithValue("@password", password);
                         cmd.Parameters.AddWithValue("@nama", nama);
                         cmd.Parameters.AddWithValue("@alamat", alamat);
                         cmd.Parameters.AddWithValue("@email", email);
@@ -54,6 +127,7 @@ namespace Farmwait.Models
                 return false;
             }
         }
+
         public static Akun CekLogin(string username, string password)
         {
             Akun akunDitemukan = null;
@@ -73,8 +147,8 @@ namespace Farmwait.Models
                         {
                             if (reader.Read())
                             {
-                                // Buat objek akun baru untuk menampung hasil
                                 akunDitemukan = new Akun();
+                                // Mengakses Property Public
                                 akunDitemukan.IdAkun = Convert.ToInt32(reader["idakun"]);
                                 akunDitemukan.Role = reader["role"].ToString();
                             }
@@ -124,6 +198,7 @@ namespace Farmwait.Models
                             if (reader.Read())
                             {
                                 // Mapping ke Property Object (PBO)
+                                // Kita gunakan 'this' untuk mengakses public properties
                                 this.IdAkun = Convert.ToInt32(reader["idakun"]);
                                 this.Username = reader["username"].ToString();
                                 this.Password = reader["password"].ToString();
@@ -157,6 +232,7 @@ namespace Farmwait.Models
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
+                        // Mengambil nilai dari Public Properties
                         cmd.Parameters.AddWithValue("@u", this.Username);
                         cmd.Parameters.AddWithValue("@p", this.Password);
                         cmd.Parameters.AddWithValue("@n", this.Nama);
@@ -177,11 +253,5 @@ namespace Farmwait.Models
                 return false;
             }
         }
-
-
     }
-
-
-
-
 }

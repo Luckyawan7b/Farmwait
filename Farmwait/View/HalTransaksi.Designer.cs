@@ -31,14 +31,16 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalTransaksi));
             dgvTransaksi = new DataGridView();
+            transaksiBindingSource = new BindingSource(components);
             idTransaksi = new DataGridViewTextBoxColumn();
+            colNamaProduk = new DataGridViewTextBoxColumn();
             tanggalTransaksi = new DataGridViewTextBoxColumn();
             idAkun = new DataGridViewTextBoxColumn();
             metodePembayaran = new DataGridViewTextBoxColumn();
-            idProduk = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
+            Jumlah = new DataGridViewTextBoxColumn();
+            TotalHarga = new DataGridViewTextBoxColumn();
             colEdit = new DataGridViewButtonColumn();
-            transaksiBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvTransaksi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transaksiBindingSource).BeginInit();
             SuspendLayout();
@@ -48,7 +50,7 @@
             dgvTransaksi.AutoGenerateColumns = false;
             dgvTransaksi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTransaksi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTransaksi.Columns.AddRange(new DataGridViewColumn[] { idTransaksi, tanggalTransaksi, idAkun, metodePembayaran, idProduk, status, colEdit });
+            dgvTransaksi.Columns.AddRange(new DataGridViewColumn[] { idTransaksi, colNamaProduk, tanggalTransaksi, idAkun, metodePembayaran, status, Jumlah, TotalHarga, colEdit });
             dgvTransaksi.DataSource = transaksiBindingSource;
             dgvTransaksi.Location = new Point(24, 169);
             dgvTransaksi.Name = "dgvTransaksi";
@@ -56,11 +58,21 @@
             dgvTransaksi.TabIndex = 0;
             dgvTransaksi.CellContentClick += dgvTransaksi_CellContentClick;
             // 
+            // transaksiBindingSource
+            // 
+            transaksiBindingSource.DataSource = typeof(Models.Transaksi);
+            // 
             // idTransaksi
             // 
             idTransaksi.DataPropertyName = "IdTransaksi";
             idTransaksi.HeaderText = "IdTransaksi";
             idTransaksi.Name = "idTransaksi";
+            // 
+            // colNamaProduk
+            // 
+            colNamaProduk.DataPropertyName = "namaproduk";
+            colNamaProduk.HeaderText = "Nama Produk";
+            colNamaProduk.Name = "colNamaProduk";
             // 
             // tanggalTransaksi
             // 
@@ -80,17 +92,23 @@
             metodePembayaran.HeaderText = "MetodePembayaran";
             metodePembayaran.Name = "metodePembayaran";
             // 
-            // idProduk
-            // 
-            idProduk.DataPropertyName = "IdProduk";
-            idProduk.HeaderText = "IdProduk";
-            idProduk.Name = "idProduk";
-            // 
             // status
             // 
             status.DataPropertyName = "Status";
             status.HeaderText = "Status";
             status.Name = "status";
+            // 
+            // Jumlah
+            // 
+            Jumlah.DataPropertyName = "Jumlah";
+            Jumlah.HeaderText = "Jumlah";
+            Jumlah.Name = "Jumlah";
+            // 
+            // TotalHarga
+            // 
+            TotalHarga.DataPropertyName = "TotalHarga";
+            TotalHarga.HeaderText = "TotalHarga";
+            TotalHarga.Name = "TotalHarga";
             // 
             // colEdit
             // 
@@ -100,11 +118,7 @@
             colEdit.Text = "EDIT";
             colEdit.UseColumnTextForButtonValue = true;
             // 
-            // transaksiBindingSource
-            // 
-            transaksiBindingSource.DataSource = typeof(Models.Transaksi);
-            // 
-            // HalTransaksiPeternak
+            // HalTransaksi
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -112,7 +126,7 @@
             ClientSize = new Size(1136, 825);
             Controls.Add(dgvTransaksi);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "HalTransaksiPeternak";
+            Name = "HalTransaksi";
             Text = "HalTransaksiPeternak";
             Load += HalTransaksiPeternak_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTransaksi).EndInit();
@@ -125,11 +139,13 @@
         private DataGridView dgvTransaksi;
         private BindingSource transaksiBindingSource;
         private DataGridViewTextBoxColumn idTransaksi;
+        private DataGridViewTextBoxColumn colNamaProduk;
         private DataGridViewTextBoxColumn tanggalTransaksi;
         private DataGridViewTextBoxColumn idAkun;
         private DataGridViewTextBoxColumn metodePembayaran;
-        private DataGridViewTextBoxColumn idProduk;
         private DataGridViewTextBoxColumn status;
+        private DataGridViewTextBoxColumn Jumlah;
+        private DataGridViewTextBoxColumn TotalHarga;
         private DataGridViewButtonColumn colEdit;
     }
 }

@@ -174,16 +174,16 @@
             lblIDProduk.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblIDProduk.Location = new Point(262, 158);
             lblIDProduk.Name = "lblIDProduk";
-            lblIDProduk.Size = new Size(71, 19);
+            lblIDProduk.Size = new Size(95, 19);
             lblIDProduk.TabIndex = 12;
-            lblIDProduk.Text = "ID Produk";
+            lblIDProduk.Text = "Nama Produk";
             // 
             // tbIDProduk
             // 
-            tbIDProduk.Location = new Point(414, 154);
+            tbIDProduk.Location = new Point(383, 154);
             tbIDProduk.Name = "tbIDProduk";
             tbIDProduk.ReadOnly = true;
-            tbIDProduk.Size = new Size(77, 23);
+            tbIDProduk.Size = new Size(108, 23);
             tbIDProduk.TabIndex = 13;
             // 
             // FormTransaksiPeternak

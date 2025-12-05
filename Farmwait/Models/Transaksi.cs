@@ -5,54 +5,108 @@ using System.Windows.Forms;
 
 namespace Farmwait.Models
 {
-    // Transaksi berdiri sendiri, tidak perlu inherit ItemGudang 
-    // karena Transaksi bukan "barang" di gudang.
     public class Transaksi
     {
         // ==========================================
-        // 1. PROPERTIES (Sesuai kolom Database)
+        // 1. ENKAPSULASI: PRIVATE FIELDS
         // ==========================================
-        public int IdTransaksi { get; set; }
-        public DateTime TanggalTransaksi { get; set; }
-        public int IdAkun { get; set; }
-        public string MetodePembayaran { get; set; } // Varchar di DB
-        public int IdProduk { get; set; }
-        public string Status { get; set; } // Varchar di DB
+        private int _idTransaksi;
+        private DateTime _tanggalTransaksi;
+        private int _idAkun;
+        private string _metodePembayaran;
+        private int _idProduk;
+        private string _status;
+        private int _jumlah;
+        private int _totalHarga;
 
         // ==========================================
-        // 2. METHODS (Hanya Read / SELECT)
+        // 2. ENKAPSULASI: PUBLIC PROPERTIES
+        // ==========================================
+        public int IdTransaksi
+        {
+            get { return _idTransaksi; }
+            set { _idTransaksi = value; }
+        }
+
+        public DateTime TanggalTransaksi
+        {
+            get { return _tanggalTransaksi; }
+            set { _tanggalTransaksi = value; }
+        }
+
+        public int IdAkun
+        {
+            get { return _idAkun; }
+            set { _idAkun = value; }
+        }
+
+        public string MetodePembayaran
+        {
+            get { return _metodePembayaran; }
+            set { _metodePembayaran = value; }
+        }
+
+        public int IdProduk
+        {
+            get { return _idProduk; }
+            set { _idProduk = value; }
+        }
+
+        public string Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
+
+        // Tambahan Property untuk Jumlah & Total (sesuai database)
+        public int Jumlah
+        {
+            get { return _jumlah; }
+            set { _jumlah = value; }
+        }
+
+        public int TotalHarga
+        {
+            get { return _totalHarga; }
+            set { _totalHarga = value; }
+        }
+
+        // ==========================================
+        // 3. METHODS
         // ==========================================
 
-        // Fungsi Static agar bisa dipanggil tanpa perlu 'new Transaksi()'
+        // Method AmbilSemua yang SUDAH DIMODIFIKASI dengan JOIN
         public static DataTable AmbilSemua()
         {
             DataTable dt = new DataTable();
-
             try
             {
                 using (var conn = Koneksi.GetConnection())
                 {
                     conn.Open();
 
-                    // Query mengambil semua data transaksi
-                    // Tips Dosen: Bisa ditambahkan JOIN kalau mau menampilkan Nama Akun & Produk
-                    string sql = "SELECT * FROM public.transaksi ORDER BY idtransaksi ASC";
+                    // QUERY JOIN: Mengambil namaproduk dari tabel produk
+                    string sql = @"
+                        SELECT 
+                            t.idtransaksi, 
+                            t.tanggaltransaksi, 
+                            t.idakun, 
+                            t.metodepembayaran, 
+                            p.namaproduk,   -- Ambil Nama Produk
+                            t.jumlah,       -- Ambil Jumlah
+                            t.totalharga, 
+                            t.status
+                        FROM public.transaksi t
+                        JOIN public.produk p ON t.idproduk = p.idproduk
+                        ORDER BY t.idtransaksi ASC";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            // Load data langsung ke DataTable
-                            dt.Load(reader);
-                        }
+                        using (var reader = cmd.ExecuteReader()) dt.Load(reader);
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal mengambil data transaksi: " + ex.Message);
-            }
-
+            catch (Exception ex) { MessageBox.Show("Gagal mengambil data transaksi: " + ex.Message); }
             return dt;
         }
 
@@ -63,12 +117,10 @@ namespace Farmwait.Models
                 using (var conn = Koneksi.GetConnection())
                 {
                     conn.Open();
-
-                    // Perhatikan: Kolom 'status' kita HARDCODE langsung dengan nilai 'Proses'
                     string sql = @"INSERT INTO public.transaksi 
-                           (tanggaltransaksi, idakun, metodepembayaran, idproduk, status, jumlah, totalharga) 
-                           VALUES 
-                           (@tgl, @idakun, @metode, @idproduk, 'Proses', @jumlah, @total)";
+                                   (tanggaltransaksi, idakun, metodepembayaran, idproduk, status, jumlah, totalharga) 
+                                   VALUES 
+                                   (@tgl, @idakun, @metode, @idproduk, 'Proses', @jumlah, @total)";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {
@@ -78,18 +130,16 @@ namespace Farmwait.Models
                         cmd.Parameters.AddWithValue("@idproduk", idProduk);
                         cmd.Parameters.AddWithValue("@jumlah", jumlah);
                         cmd.Parameters.AddWithValue("@total", total);
-
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Lempar error ke Form biar muncul MessageBox di sana
                 throw new Exception("Gagal simpan ke database: " + ex.Message);
             }
         }
-        // Opsional: Fitur Filter Berdasarkan ID Akun (Misal untuk melihat riwayat user tertentu)
+
         public static DataTable AmbilByAkun(int idAkun)
         {
             DataTable dt = new DataTable();
@@ -98,27 +148,21 @@ namespace Farmwait.Models
                 using (var conn = Koneksi.GetConnection())
                 {
                     conn.Open();
+                    // Untuk user history, sementara kita pakai SELECT * dulu
+                    // Kalau mau nama produk juga, bisa di-JOIN-kan seperti AmbilSemua
                     string sql = "SELECT * FROM public.transaksi WHERE idakun = @idakun ORDER BY tanggaltransaksi DESC";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@idakun", idAkun);
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            dt.Load(reader);
-                        }
+                        using (var reader = cmd.ExecuteReader()) dt.Load(reader);
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error filter akun: " + ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show("Error filter akun: " + ex.Message); }
             return dt;
         }
 
-        // Method untuk mengupdate status saja
-        // Method untuk mengupdate status saja
         public static void UpdateStatus(int id, string statusBaru)
         {
             try
@@ -127,7 +171,6 @@ namespace Farmwait.Models
                 {
                     conn.Open();
                     string query = "UPDATE public.transaksi SET status = @status WHERE idtransaksi = @id";
-
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@status", statusBaru);
@@ -136,12 +179,7 @@ namespace Farmwait.Models
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                // Lempar error biar ditangkap sama Form yang manggil
-                throw new Exception(ex.Message);
-            }
+            catch (Exception ex) { throw new Exception(ex.Message); }
         }
-
     }
 }
