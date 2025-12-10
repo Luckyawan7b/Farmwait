@@ -22,6 +22,8 @@ namespace Farmwait.View
                 btnKelolaProduk.Visible = false;
                 btnKelolaTransaksi.Visible = false;
                 btnTransaksi.Visible = true;
+                btnRiwayatTransaksi.Visible = true;
+
             }
             else
             {
@@ -30,6 +32,7 @@ namespace Farmwait.View
                 btnKelolaProduk.Visible = true;
                 btnKelolaTransaksi.Visible = true;
                 btnTransaksi.Visible = false;
+                btnRiwayatTransaksi.Visible = false;
             }
 
         }
@@ -77,7 +80,7 @@ namespace Farmwait.View
         private void btnKelolaTransaksi_Click(object sender, EventArgs e)
         {
             this.Hide();
-            HalTransaksi transaksiPeternak = new HalTransaksi();
+            HalTransaksi transaksiPeternak = new HalTransaksi(this.userRole, this.idUser);
             transaksiPeternak.ShowDialog();
             this.Show();
         }
@@ -87,6 +90,14 @@ namespace Farmwait.View
             this.Hide();
             HalPembelian halTransaksiPembeli = new HalPembelian(this.idUser);
             halTransaksiPembeli.ShowDialog();
+            this.Show();
+        }
+        private void btnRiwayatTransaksi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            // Mengarahkan ke HalTransaksi sesuai request
+            HalTransaksi halRiwayat = new HalTransaksi(this.userRole, this.idUser);
+            halRiwayat.ShowDialog();
             this.Show();
         }
 

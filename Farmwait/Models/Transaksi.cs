@@ -150,7 +150,20 @@ namespace Farmwait.Models
                     conn.Open();
                     // Untuk user history, sementara kita pakai SELECT * dulu
                     // Kalau mau nama produk juga, bisa di-JOIN-kan seperti AmbilSemua
-                    string sql = "SELECT * FROM public.transaksi WHERE idakun = @idakun ORDER BY tanggaltransaksi DESC";
+                    string sql = @"
+                        SELECT 
+                            t.idtransaksi, 
+                            t.tanggaltransaksi, 
+                            t.idakun, 
+                            t.metodepembayaran, 
+                            p.namaproduk,   -- Penting: Ambil Nama Produk
+                            t.jumlah,       -- Penting: Ambil Jumlah
+                            t.totalharga, 
+                            t.status
+                        FROM public.transaksi t
+                        JOIN public.produk p ON t.idproduk = p.idproduk
+                        WHERE t.idakun = @idakun
+                        ORDER BY t.tanggaltransaksi DESC";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {

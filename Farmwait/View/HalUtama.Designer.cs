@@ -37,6 +37,7 @@
             btnProfil = new Button();
             btnKelolaTransaksi = new Button();
             btnTransaksi = new Button();
+            btnRiwayatTransaksi = new Button();
             SuspendLayout();
             // 
             // lblSelamatDatang
@@ -165,13 +166,31 @@
             btnTransaksi.FlatStyle = FlatStyle.Flat;
             btnTransaksi.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
             btnTransaksi.ForeColor = Color.Black;
-            btnTransaksi.Location = new Point(411, 347);
+            btnTransaksi.Location = new Point(175, 347);
             btnTransaksi.Name = "btnTransaksi";
-            btnTransaksi.Size = new Size(297, 104);
+            btnTransaksi.Size = new Size(342, 104);
             btnTransaksi.TabIndex = 8;
             btnTransaksi.Text = "TRANSAKSI";
             btnTransaksi.UseVisualStyleBackColor = false;
             btnTransaksi.Click += btnTransaksi_Click;
+            // 
+            // btnRiwayatTransaksi
+            // 
+            btnRiwayatTransaksi.BackColor = Color.FromArgb(255, 192, 128);
+            btnRiwayatTransaksi.FlatAppearance.BorderSize = 0;
+            btnRiwayatTransaksi.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnRiwayatTransaksi.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnRiwayatTransaksi.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnRiwayatTransaksi.FlatStyle = FlatStyle.Flat;
+            btnRiwayatTransaksi.Font = new Font("Nirmala UI", 15.75F, FontStyle.Bold);
+            btnRiwayatTransaksi.ForeColor = Color.Black;
+            btnRiwayatTransaksi.Location = new Point(634, 347);
+            btnRiwayatTransaksi.Name = "btnRiwayatTransaksi";
+            btnRiwayatTransaksi.Size = new Size(297, 104);
+            btnRiwayatTransaksi.TabIndex = 9;
+            btnRiwayatTransaksi.Text = "RIWAYAT TRANSAKSI";
+            btnRiwayatTransaksi.UseVisualStyleBackColor = false;
+            btnRiwayatTransaksi.Click += btnRiwayatTransaksi_Click;
             // 
             // HalUtama
             // 
@@ -180,6 +199,7 @@
             BackColor = Color.WhiteSmoke;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1136, 825);
+            Controls.Add(btnRiwayatTransaksi);
             Controls.Add(btnTransaksi);
             Controls.Add(btnKelolaTransaksi);
             Controls.Add(btnProfil);
@@ -206,5 +226,6 @@
         private Button btnProfil;
         private Button btnKelolaTransaksi;
         private Button btnTransaksi;
+        private Button btnRiwayatTransaksi;
     }
 }

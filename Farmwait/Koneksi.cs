@@ -12,7 +12,7 @@ namespace Farmwait
         private static string localhost = "localhost";
         private static string port = "5432";
         private static string username = "postgres";
-        private static string password = "123";
+        private static string password = "admin";
         private static string database = "Farmwait";
 
         public static NpgsqlConnection GetConnection()
